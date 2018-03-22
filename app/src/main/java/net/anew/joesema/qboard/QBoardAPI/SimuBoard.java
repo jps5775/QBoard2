@@ -1,5 +1,8 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
+import android.app.ListActivity;
+import android.bluetooth.BluetoothAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,6 +12,7 @@ import java.util.Random;
  */
 
 public class SimuBoard {
+
 
     /**
      * Connects to the snowboard

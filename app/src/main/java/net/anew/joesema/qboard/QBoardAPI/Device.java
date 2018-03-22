@@ -1,5 +1,7 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
+import java.util.ArrayList;
+
 /**
  * Created by JoeSema on 3/20/18.
  */
