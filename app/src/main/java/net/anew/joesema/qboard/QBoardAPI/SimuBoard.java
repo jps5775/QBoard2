@@ -13,18 +13,11 @@ import java.util.Random;
 
 public class SimuBoard {
 
-    /**
-     * Connects to the snowboard
-
-     –Component parses and converts data to doubles
-
-     –Returns calls for accelerometer, gyroscope, temp data
-
-     –Data returned should be realistic, and the sensor data values should change over successive calls
-     */
-
     private Random numberGenerator;
     private Device mainDevice;
+    private double[] gyroData;
+    private double[] accelData;
+    private double temperature = -1;
 
     /**
      * Default constructor
@@ -44,7 +37,10 @@ public class SimuBoard {
         }
         return list;
     }
-
+    /**
+     * Connects the device passed in to the main phone device.
+     * @return A boolean representing that the device is paired.
+     */
     public boolean pairPhone(Device deviceToConnect){
         deviceToConnect.setPaired(true);
         mainDevice = deviceToConnect;
@@ -53,22 +49,36 @@ public class SimuBoard {
 
     /**
      * Returns the accelerometer data from the 16-byte data packet.
-     * @return A double array representing the x, y, and z accelerations.
+     * @return A double array representing the x, y, and z accelerations in meters/second.
      */
     public double[] getAccelerometer(){
         if (mainDevice == null){return null;}
-        return new double[]{numberGenerator.nextDouble(),
+        // first time generating accel data
+        if (accelData == null) accelData = new double[]{numberGenerator.nextDouble(),
                 numberGenerator.nextDouble(), numberGenerator.nextDouble()};
+
+        for (int i = 0; i < accelData.length; i++){
+            accelData[i] = (accelData[i] * 1.3);
+            if(accelData[i] > 9) accelData[i] = 1.0;
+        }
+        return accelData;
     }
 
     /**
      * Returns the gyroscope data from the 16-byte data packet.
-     * @return A double array representing the x, y, and z orientations.
+     * @return A double array representing the x, y, and z angular velocity in degrees/second.
      */
     public double[] getGyroscope(){
         if (mainDevice == null){return null;}
-        return new double[]{numberGenerator.nextDouble(),
+        if(gyroData == null) gyroData = new double[]{numberGenerator.nextDouble(),
                 numberGenerator.nextDouble(), numberGenerator.nextDouble()};
+
+        for (int i = 0; i < gyroData.length; i++){
+            gyroData[i] = (gyroData[i] * 1.3);
+            if(gyroData[i] > 9) gyroData[i] = 1.0;
+        }
+
+        return gyroData;
     }
 
     /**
@@ -77,7 +87,8 @@ public class SimuBoard {
      */
     public double getTemperature(){
         if (mainDevice == null){return -1;}
-        return numberGenerator.nextDouble() * 50;
+        if(temperature == -1) temperature = numberGenerator.nextDouble() * 50;
+        return temperature;
     }
 
 }
