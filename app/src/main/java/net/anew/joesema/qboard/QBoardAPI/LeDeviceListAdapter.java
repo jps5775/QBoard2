@@ -5,4 +5,12 @@ package net.anew.joesema.qboard.QBoardAPI;
  */
 
 public class LeDeviceListAdapter {
+
+    public void addDevice(){
+
+    }
+
+    public void notifyDataSetChanged(){
+
+    }
 }
