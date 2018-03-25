@@ -1,4 +1,4 @@
-package net.anew.joesema.qboard;
+package net.anew.joesema.qboard.QBoardAPI;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;

@@ -35,8 +35,8 @@ public class SimuBoard {
     }
 
     /**
-     * Searches for bluetooth enabled deivces to connect to.
-     * @return A List of devcies representing all bluetooth enabled deivces in the area
+     * Searches for bluetooth enabled devices to connect to.
+     * @return A List of devices representing all bluetooth enabled devices in the area
      */
     public List<Device> searchDevices(){
         scanForDevice.scan(boolean enabled);
