@@ -13,8 +13,6 @@ import java.util.Random;
 
 public class SimuBoard {
 
-    private ScanForDevice scanForDevice;
-
     /**
      * Connects to the snowboard
 
@@ -26,6 +24,7 @@ public class SimuBoard {
      */
 
     private Random numberGenerator;
+    private Device mainDevice;
 
     /**
      * Default constructor
@@ -39,18 +38,16 @@ public class SimuBoard {
      * @return A List of devices representing all bluetooth enabled devices in the area
      */
     public List<Device> searchDevices(){
-        scanForDevice.scan(boolean enabled);
-        /**
         List<Device> list = new ArrayList<Device>();
         for (int i = 0; i < 10; i++) {
             list.add(new Device( "000" + i, false));
         }
         return list;
-         */
     }
 
     public boolean pairPhone(Device deviceToConnect){
         deviceToConnect.setPaired(true);
+        mainDevice = deviceToConnect;
         return true;
     }
 
@@ -59,6 +56,7 @@ public class SimuBoard {
      * @return A double array representing the x, y, and z accelerations.
      */
     public double[] getAccelerometer(){
+        if (mainDevice == null){return null;}
         return new double[]{numberGenerator.nextDouble(),
                 numberGenerator.nextDouble(), numberGenerator.nextDouble()};
     }
@@ -68,6 +66,7 @@ public class SimuBoard {
      * @return A double array representing the x, y, and z orientations.
      */
     public double[] getGyroscope(){
+        if (mainDevice == null){return null;}
         return new double[]{numberGenerator.nextDouble(),
                 numberGenerator.nextDouble(), numberGenerator.nextDouble()};
     }
@@ -77,7 +76,7 @@ public class SimuBoard {
      * @return A double representing the degrees in Fahrenheit.
      */
     public double getTemperature(){
-
+        if (mainDevice == null){return -1;}
         return numberGenerator.nextDouble() * 50;
     }
 

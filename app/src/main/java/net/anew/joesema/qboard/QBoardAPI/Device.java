@@ -6,6 +6,10 @@ import java.util.ArrayList;
  * Created by JoeSema on 3/20/18.
  */
 
+/**
+ * This simulates a device with bluetooth connectability
+ */
+
 public class Device {
 
     private String serviceUUID;
