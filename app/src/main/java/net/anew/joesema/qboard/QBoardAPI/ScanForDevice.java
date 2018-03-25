@@ -16,14 +16,14 @@ public class ScanForDevice extends ListActivity {
     private BluetoothAdapter bluetoothAdapter;
     private boolean scanning;
     private Handler handler;
-    private LeDeviceListAdapter leDeviceListAdapter;
+    private SimuBoard simuBoard;
 
     //time alloted to scan for devices
     private static final long SCAN_PERIOD = 10000;
 
 
     //start the scan
-    private void scan(final boolean enable){
+    public void scan(final boolean enable){
         if(enable) {
             handler.postDelayed(new Runnable() {
                 @Override
@@ -44,14 +44,16 @@ public class ScanForDevice extends ListActivity {
     //stop the scan
     private BluetoothAdapter.LeScanCallback leScanCallback = new BluetoothAdapter.LeScanCallback() {
         @Override
-        public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
+        public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
             runOnUiThread(new Runnable(){
                 @Override
                 public void run(){
-                    leDeviceListAdapter.addDevice(device);
-                    leDeviceListAdapter.notifyDataSetChanged();
+                    simuBoard.searchDevices();
+                    simuBoard.pairPhone(Device deviceToConnect);
                 }
             });
         }
     }
 }
+
+

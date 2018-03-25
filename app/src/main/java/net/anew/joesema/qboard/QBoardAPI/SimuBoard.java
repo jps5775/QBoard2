@@ -13,6 +13,7 @@ import java.util.Random;
 
 public class SimuBoard {
 
+    private ScanForDevice scanForDevice;
 
     /**
      * Connects to the snowboard
@@ -38,11 +39,14 @@ public class SimuBoard {
      * @return A List of devcies representing all bluetooth enabled deivces in the area
      */
     public List<Device> searchDevices(){
+        scanForDevice.scan(boolean enabled);
+        /**
         List<Device> list = new ArrayList<Device>();
         for (int i = 0; i < 10; i++) {
             list.add(new Device( "000" + i, false));
         }
         return list;
+         */
     }
 
     public boolean pairPhone(Device deviceToConnect){
