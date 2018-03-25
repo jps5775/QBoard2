@@ -54,5 +54,4 @@ public class ScanForDevice extends ListActivity {
             });
         }
     }
-
 }
