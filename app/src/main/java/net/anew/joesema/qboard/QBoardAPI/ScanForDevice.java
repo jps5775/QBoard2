@@ -17,7 +17,7 @@ public class ScanForDevice extends ListActivity {
     private Handler handler;
 
     private static final long SCAN_PERIOD = 10000;
-    private LeDeviceListAdapter leDeviceListAdapter;
+//    private LeDeviceListAdapter leDeviceListAdapter;
 
     private void scanLeDevice(final boolean enable){
         if(enable){
@@ -38,6 +38,9 @@ public class ScanForDevice extends ListActivity {
         }
     }
 
+    private LeDeviceListAdapter leDeviceListAdapter;
+
+    //scan callback
     private BluetoothAdapter.LeScanCallback leScanCallback = new BluetoothAdapter.LeScanCallback() {
         @Override
         public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
