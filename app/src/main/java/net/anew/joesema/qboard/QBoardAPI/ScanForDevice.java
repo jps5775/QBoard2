@@ -17,7 +17,7 @@ public class ScanForDevice extends ListActivity {
     private Handler handler;
 
     private static final long SCAN_PERIOD = 10000;
-    private LeDeviceListApater leDeviceListAdpater;
+    private LeDeviceListAdapter leDeviceListAdapter;
 
     private void scanLeDevice(final boolean enable){
         if(enable){
@@ -44,8 +44,8 @@ public class ScanForDevice extends ListActivity {
             runOnUiThread(new Runnable(){
                 @Override
                 public void run(){
-                    leDeviceListAdpater.addDevice(device);
-                    leDeviceListAdpater.notifyDataSetChanged();
+                    leDeviceListAdapter.addDevice(device);
+                    leDeviceListAdapter.notifyDataSetChanged();
                 }
             });
         }
