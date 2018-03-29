@@ -9,6 +9,7 @@ import android.bluetooth.BluetoothGattServerCallback;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.AdvertiseCallback;
+import android.bluetooth.le.AdvertiseData;
 import android.bluetooth.le.AdvertiseSettings;
 import android.bluetooth.le.BluetoothLeAdvertiser;
 import android.bluetooth.le.BluetoothLeScanner;
@@ -83,7 +84,9 @@ public class ScanForDevice extends Service{
         }
 
         AdvertiseSettings settings = new AdvertiseSettings.Builder().setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_BALANCED).setConnectable(true).setTimeout(0).setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_LOW).build();
-        bluetoothLeAdvertiser.startAdvertising(settings, data, advertiseCallback);
+        ParcelUuid parcelUuid = new ParcelUuid(SERVICE_UUID);
+        AdvertiseData advertiseData = new AdvertiseData.Builder().setIncludeDeviceName(true).addServiceUuid(parcelUuid).build();
+        bluetoothLeAdvertiser.startAdvertising(settings, advertiseData, advertiseCallback);
     }
 
     private AdvertiseCallback advertiseCallback = new AdvertiseCallback() {
@@ -102,6 +105,24 @@ public class ScanForDevice extends Service{
     private void setupServer(){
         BluetoothGattService service = new BluetoothGattService(SERVICE_UUID, BluetoothGattService.SERVICE_TYPE_PRIMARY);
         gattServer.addService(service);
+    }
+
+    protected void onPause(){
+        super.onPause();
+        stopAdvertising();
+        stopServer();
+    }
+
+    private void stopServer(){
+        if(gattServer != null){
+            gattServer.close();
+        }
+    }
+
+    private void stopAdvertising(){
+        if(bluetoothLeAdvertiser != null){
+            bluetoothLeAdvertiser.stopAdvertising(advertiseCallback);
+        }
     }
 
     private void startScan(){
