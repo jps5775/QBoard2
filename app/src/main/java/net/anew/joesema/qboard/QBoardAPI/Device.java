@@ -1,6 +1,7 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Created by JoeSema on 3/20/18.
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 public class Device {
 
     private String serviceUUID;
+    public byte[] payload;
     private boolean isPaired;
 
     public Device(String serviceUUID, boolean isPaired){
