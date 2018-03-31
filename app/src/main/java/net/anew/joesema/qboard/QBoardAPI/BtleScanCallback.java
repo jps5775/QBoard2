@@ -11,7 +11,7 @@ import java.util.*;
  * Information taken from https://www.bignerdranch.com/blog/bluetooth-low-energy-part-1/
  * Created by laurenritter on 3/29/18.
  */
-
+/*
 public class BtleScanCallback extends ScanCallback {
     private final static String TAG = ScanForDevice.class.getSimpleName();
     HashMap<String, String> scanResults;
@@ -42,4 +42,6 @@ public class BtleScanCallback extends ScanCallback {
         String deviceAddress = device.getAddress();
         scanResults.put(deviceAddress, device);
     }
+
 }
+*/

@@ -31,7 +31,7 @@ import java.util.*;
  * Information taken from https://www.bignerdranch.com/blog/bluetooth-low-energy-part-1/
  * Created by laurenritter on 3/29/18.
  */
-
+/*
 public class ScanForDevice extends Service{
     private boolean scanning;
     private BluetoothAdapter bluetoothAdapter;
@@ -186,3 +186,4 @@ public class ScanForDevice extends Service{
         requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_FINE_LOCATION);
     }
 }
+*/

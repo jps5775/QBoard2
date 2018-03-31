@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        Intent intent = new Intent(this, SimuBoardTest.class);
+        Intent intent = new Intent(this, GraphTest.class);
         startActivity(intent);
 
 

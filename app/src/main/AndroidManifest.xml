@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".QBoardAPI.SimuBoardTest" />
+        <activity android:name=".QBoardAPI.GraphTest"/>
     </application>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
