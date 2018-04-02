@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">QBoard</string>
+    <string name="titleText">Welcome To Our Snowboard App</string>
 </resources>

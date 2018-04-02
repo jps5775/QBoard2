@@ -40,6 +40,8 @@ public class SimuBoardTest extends AppCompatActivity {
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // FIXME: add real device
+
                 List<Device> list = board.searchDevices();
                 for (int i = 0; i < list.size(); i++){
                     Log.v("Test Connections:", " " + list.get(i));
@@ -56,6 +58,9 @@ public class SimuBoardTest extends AppCompatActivity {
         genButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // FIXME: add real device
+
                 double[] gData = board.getGyroscope();
                 double[] aData = board.getAccelerometer();
                 String gyroData = "x: " + gData[0] + "\ny: "
