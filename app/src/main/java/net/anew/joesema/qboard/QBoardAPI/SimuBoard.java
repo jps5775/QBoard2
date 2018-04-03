@@ -48,7 +48,7 @@ public class SimuBoard {
     public boolean pairPhone(){
         Device deviceToConnect = new Device(scan.SERVICE_UUID.toString(), false);
         deviceToConnect.setPaired(true);
-        
+
         mainDevice = deviceToConnect;
         return true;
     }
