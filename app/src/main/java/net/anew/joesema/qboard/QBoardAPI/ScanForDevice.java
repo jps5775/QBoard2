@@ -14,7 +14,9 @@ import android.bluetooth.le.AdvertiseData;
 import android.bluetooth.le.AdvertiseSettings;
 import android.bluetooth.le.BluetoothLeAdvertiser;
 import android.bluetooth.le.BluetoothLeScanner;
+import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanFilter;
+import android.bluetooth.le.ScanResult;
 import android.bluetooth.le.ScanSettings;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -136,7 +138,7 @@ public class ScanForDevice extends AppCompatActivity{
         }
     }
 
-    public void startScan(){
+    public void startScan(HashMap<String, BluetoothDevice> results){
         if(!hasPermissions() || scanning) {
             return;
         }
@@ -145,7 +147,7 @@ public class ScanForDevice extends AppCompatActivity{
         List<ScanFilter> filters = new ArrayList<>();
         ScanSettings settings = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_POWER).build();
         scanResults = new HashMap<>();
-        btleScanCallback = new BtleScanCallback(scanResults);
+        btleScanCallback = new BtleScanCallback(results);
         bluetoothLeScanner = bluetoothAdapter.getBluetoothLeScanner();
         bluetoothLeScanner.startScan(filters, settings, btleScanCallback);
         scanning = true;
@@ -209,6 +211,41 @@ public class ScanForDevice extends AppCompatActivity{
         if (mGatt != null) {
             mGatt.disconnect();
             mGatt.close();
+        }
+    }
+
+    private class BtleScanCallback extends ScanCallback{
+        //private final String TAG = ScanForDevice.class.getSimpleName();
+        HashMap<String, BluetoothDevice> scanResults;
+
+
+        public BtleScanCallback(HashMap<String, BluetoothDevice> results){
+            scanResults = results;
+        }
+
+        @Override
+        public void onScanResult(int callbackType, ScanResult result){
+            addScanResult(result);
+        }
+
+        @Override
+        public void onBatchScanResults(List<ScanResult> results){
+            for(ScanResult result:results){
+                addScanResult(result);
+            }
+        }
+
+        private class GattClientCallback extends BluetoothGattCallback { }
+
+        @Override
+        public void onScanFailed(int errorCode){
+            Log.e(TAG, "BLE Scan Failed with code" + errorCode);
+        }
+
+        private void addScanResult(ScanResult result){
+            BluetoothDevice device = result.getDevice();
+            String deviceAddress = device.getAddress();
+            scanResults.put(deviceAddress, device);
         }
     }
 
