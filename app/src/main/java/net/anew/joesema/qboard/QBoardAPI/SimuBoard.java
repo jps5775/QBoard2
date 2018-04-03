@@ -2,6 +2,7 @@ package net.anew.joesema.qboard.QBoardAPI;
 
 import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -35,9 +36,9 @@ public class SimuBoard {
      * Searches for bluetooth enabled devices to connect to.
      * @return A List of devices representing all bluetooth enabled devices in the area
      */
-    public HashMap<String, String> searchDevices(){
+    public HashMap<String, String> searchDevices(HashMap<String, BluetoothDevice> hashy){
 
-        scan.startScan();
+        scan.startScan(hashy);
 
         return scan.scanResults;
     }
