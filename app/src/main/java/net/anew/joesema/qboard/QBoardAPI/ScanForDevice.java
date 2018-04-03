@@ -59,6 +59,7 @@ public class ScanForDevice extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         bluetoothManager = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
+
     }
 
     @Override
