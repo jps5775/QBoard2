@@ -10,6 +10,7 @@ import android.widget.EditText;
 import net.anew.joesema.qboard.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -41,8 +42,13 @@ public class SimuBoardTest extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // FIXME: add real device
+                //real connection stuff
+                HashMap<String, String> devicesToConnectTo = board.searchDevices();
+                board.pairPhone();
 
-                List<Device> list = board.searchDevices();
+
+                //fake connection stuff
+                /*List<Device> list = board.searchDevices();
                 for (int i = 0; i < list.size(); i++){
                     Log.v("Test Connections:", " " + list.get(i));
                 }
@@ -50,7 +56,7 @@ public class SimuBoardTest extends AppCompatActivity {
                 Log.v("Connected with: ", "" + list.get(0));
                 if (board.pairPhone(list.get(0))){
                     connectedText.setText("true");
-                }
+                }*/
 
             }
         });

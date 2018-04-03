@@ -6,6 +6,7 @@ import android.bluetooth.BluetoothAdapter;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -21,6 +22,7 @@ public class SimuBoard {
     private double[] gyroData;
     private double[] accelData;
     private double temperature = -1;
+    ScanForDevice scan = new ScanForDevice();
 
     /**
      * Default constructor
@@ -33,19 +35,20 @@ public class SimuBoard {
      * Searches for bluetooth enabled devices to connect to.
      * @return A List of devices representing all bluetooth enabled devices in the area
      */
-    public List<Device> searchDevices(){
-        List<Device> list = new ArrayList<Device>();
-        for (int i = 0; i < 10; i++) {
-            list.add(new Device( "000" + i, false));
-        }
-        return list;
+    public HashMap<String, String> searchDevices(){
+
+        scan.startScan();
+
+        return scan.scanResults;
     }
     /**
      * Connects the device passed in to the main phone device.
      * @return A boolean representing that the device is paired.
      */
-    public boolean pairPhone(Device deviceToConnect){
+    public boolean pairPhone(){
+        Device deviceToConnect = new Device(scan.SERVICE_UUID.toString(), false);
         deviceToConnect.setPaired(true);
+        
         mainDevice = deviceToConnect;
         return true;
     }

@@ -5,9 +5,13 @@ import android.app.ListActivity;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGatt;
+import android.bluetooth.BluetoothGattCallback;
+import android.bluetooth.BluetoothGattServer;
 import android.bluetooth.BluetoothGattServerCallback;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
+import android.bluetooth.BluetoothProfile;
 import android.bluetooth.le.AdvertiseCallback;
 import android.bluetooth.le.AdvertiseData;
 import android.bluetooth.le.AdvertiseSettings;
@@ -17,22 +21,21 @@ import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanSettings;
 import android.content.Intent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.logging.Handler;
-
 import android.content.pm.PackageManager;
 import android.os.*;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import net.anew.joesema.qboard.R;
+
 import java.util.*;
 
 /**
  * Information taken from https://www.bignerdranch.com/blog/bluetooth-low-energy-part-1/
  * Created by laurenritter on 3/29/18.
  */
-/*
-public class ScanForDevice extends Service{
+
+public class ScanForDevice extends AppCompatActivity{
     private boolean scanning;
     private BluetoothAdapter bluetoothAdapter;
     private BtleScanCallback btleScanCallback;
@@ -40,12 +43,16 @@ public class ScanForDevice extends Service{
     private Handler handler;
     private BluetoothLeScanner bluetoothLeScanner;
     private BluetoothLeAdvertiser bluetoothLeAdvertiser;
-    private GattServer gattServer;
+    private BluetoothGattServer gattServer;
     private BluetoothManager bluetoothManager;
     private final static String TAG = ScanForDevice.class.getSimpleName();
+    private BluetoothGatt mGatt;
 
-    private static final int SCAN_PERIOD = 10000;
+    protected static final int SCAN_PERIOD = 10000;
     private final static int REQUEST_ENABLE_BT = 1;
+    private final static int REQUEST_FINE_LOCATION = 2;
+    protected final static UUID SERVICE_UUID = UUID.fromString("5154474C-9000-0101-0001-000000000001");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -72,8 +79,6 @@ public class ScanForDevice extends Service{
             return;
         }
         bluetoothLeAdvertiser = bluetoothAdapter.getBluetoothLeAdvertiser();
-        GattServerCallback gattServerCallback = new GattServerCallback();
-        gattServer = bluetoothManager.openGattServer(this, gattServerCallback);
         setupServer();
         startAdvertising();
     }
@@ -100,7 +105,7 @@ public class ScanForDevice extends Service{
         public void onStartFailure(int errorCode){
             Log.d(TAG, "Peripheral advertising failed: " + errorCode);
         }
-    }
+    };
 
     private void setupServer(){
         BluetoothGattService service = new BluetoothGattService(SERVICE_UUID, BluetoothGattService.SERVICE_TYPE_PRIMARY);
@@ -125,10 +130,11 @@ public class ScanForDevice extends Service{
         }
     }
 
-    private void startScan(){
-        if(!hasPermissions() || scanning){
+    public void startScan(){
+        if(!hasPermissions() || scanning) {
             return;
         }
+
 
         List<ScanFilter> filters = new ArrayList<>();
         ScanSettings settings = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_POWER).build();
@@ -185,5 +191,46 @@ public class ScanForDevice extends Service{
     private void requestLocationPermission(){
         requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_FINE_LOCATION);
     }
+
+    private void connectDevice(BluetoothDevice device) {
+        Log.d(TAG, "Connecting to " + device.getAddress());
+        GattClientCallback gattClientCallback = new GattClientCallback();
+        mGatt = device.connectGatt(this, false, gattClientCallback);
+    }
+
+    public void disconnectGattServer() {
+        Log.d(TAG, "Closing Gatt connection");
+        if (mGatt != null) {
+            mGatt.disconnect();
+            mGatt.close();
+        }
+    }
+
+    private class GattClientCallback extends BluetoothGattCallback {
+        @Override
+        public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
+            super.onConnectionStateChange(gatt, status, newState);
+            Log.d(TAG, "onConnectionStateChange newState: " + newState);
+
+            if (status == BluetoothGatt.GATT_FAILURE) {
+                Log.d(TAG, "Connection Gatt failure status " + status);
+                disconnectGattServer();
+                return;
+            } else if (status != BluetoothGatt.GATT_SUCCESS) {
+                // handle anything not SUCCESS as failure
+                Log.d(TAG, "Connection not GATT sucess status " + status);
+                disconnectGattServer();
+                return;
+            }
+
+            if (newState == BluetoothProfile.STATE_CONNECTED) {
+                Log.d(TAG, "Connected to device " + gatt.getDevice().getAddress());
+                gatt.discoverServices();
+            } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
+                Log.d(TAG,"Disconnected from device");
+                disconnectGattServer();
+            }
+        }
+    }
+
 }
-*/
