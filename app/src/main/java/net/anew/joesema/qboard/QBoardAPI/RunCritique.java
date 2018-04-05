@@ -1,14 +1,24 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
+import android.app.Activity;
+import android.os.*;
+import net.anew.joesema.qboard.R;
+
 /**
  * Created by laurenritter on 4/3/18.
  */
 
-public class RunCritique {
+public class RunCritique extends Activity{
     private SimuBoard simuBoard;
     private String speedEval;
     private String gyroEval;
     private String gForceEval;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.critique_advice);
+    }
 
     public String runSpeed(){ // We need to get the average data of the most previous run so we can get the data.
         speedEval = "";
