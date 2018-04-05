@@ -20,14 +20,16 @@ public class RunCritique extends Activity{
     private EditText gyroAdvice;
     private EditText gForceAdvice;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState, Device device){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.critique_advice);
 
         speedAdvice = findViewById(R.id.speedAdvice);
         gyroAdvice = findViewById(R.id.gyroAdvice);
         gForceAdvice = findViewById(R.id.gForceAdvice);
+        runSpeed();
+        runGyro();
+        runGForce(device);
     }
 
     public void runSpeed(){ // We need to get the average data of the most previous run so we can get the data.
