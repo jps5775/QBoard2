@@ -2,6 +2,8 @@ package net.anew.joesema.qboard.QBoardAPI;
 
 import android.app.Activity;
 import android.os.*;
+import android.widget.EditText;
+
 import net.anew.joesema.qboard.R;
 
 /**
@@ -14,13 +16,21 @@ public class RunCritique extends Activity{
     private String gyroEval;
     private String gForceEval;
 
+    private EditText speedAdvice;
+    private EditText gyroAdvice;
+    private EditText gForceAdvice;
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.critique_advice);
+
+        speedAdvice = findViewById(R.id.speedAdvice);
+        gyroAdvice = findViewById(R.id.gyroAdvice);
+        gForceAdvice = findViewById(R.id.gForceAdvice);
     }
 
-    public String runSpeed(){ // We need to get the average data of the most previous run so we can get the data.
+    public void runSpeed(){ // We need to get the average data of the most previous run so we can get the data.
         speedEval = "";
         if((simuBoard.getAccelerometer()[1] >= 25) && (simuBoard.getAccelerometer()[1] <= 35)){ // Between 25 and 35 is average top speed
             speedEval = "You are achieving the average top snowboarding speed." +
@@ -37,10 +47,10 @@ public class RunCritique extends Activity{
                     "5. Make sure you are distributing the weight between both of your feet properly.";
         }
 
-        return speedEval;
+        speedAdvice.setText(speedEval);
     }
 
-    public String runGyro(){
+    public void runGyro(){
         gyroEval = "";
         if((simuBoard.getGyroscope()[1] >= 90) && (simuBoard.getGyroscope()[1] <= 270)){ //We are saying that the average is between these degrees
             gyroEval="Your rotation is on point.";
@@ -50,10 +60,10 @@ public class RunCritique extends Activity{
             gyroEval="you're killing the snowboard game.";
         }
 
-        return gyroEval;
+        gyroAdvice.setText(gyroEval);
     }
 
-    public String runGForce(Device device){
+    public void runGForce(Device device){
         gForceEval = "";
         if((simuBoard.getGyroscope(device)[1] >= 1) && (simuBoard.getGyroscope(device)[1] <= 2.5)){
             gForceEval = "guess what? you're normal and no one cares what you do";
@@ -63,6 +73,6 @@ public class RunCritique extends Activity{
             gForceEval = "OKAY showoff";
         }
 
-        return gForceEval;
+        gForceAdvice.setText(gForceEval);
     }
 }
