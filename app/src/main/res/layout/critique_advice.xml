@@ -16,8 +16,8 @@
         android:textSize="32dp"
         android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <Image
+        android:id="@+id/watch"
         :layout_above="35dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         android:layout_marginEnd="21dp"
         android:layout_marginTop="38dp"
         android:layout_toStartOf="@+id/speedAdvice"
-        android:src="@mipmap/ic_launcher_round" />
+        android:src="@mipmap/stopwatch_foreground" />
 
     <EditText
         android:id="@+id/speedAdvice"
@@ -38,12 +38,18 @@
         android:ems="10"
         android:inputType="textMultiLine" />
 
+    <Image
+        android:id="@+id/walking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic"/>
+
     <EditText
         android:id="@+id/gyroAdvice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/gForceAdvice"
-        android:layout_alignStart="@+id/imageButton"
+        android:layout_alignStart="@+id/watch"
         android:layout_marginBottom="90dp"
         android:ems="10"
         android:inputType="textMultiLine" />
