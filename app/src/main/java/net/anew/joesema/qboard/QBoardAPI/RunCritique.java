@@ -15,6 +15,7 @@ public class RunCritique extends Activity{
     private String speedEval;
     private String gyroEval;
     private String gForceEval;
+    private double speed;
 
     private EditText speedAdvice;
     private EditText gyroAdvice;
@@ -32,7 +33,9 @@ public class RunCritique extends Activity{
         runGForce(device);
     }
 
-    public void runSpeed(){ // We need to get the average data of the most previous run so we can get the data.
+    public void runSpeed(){ // We need to get the top speed data of the most previous run so we can get the data.
+        speed = simuBoard.getAccelerometer()[1];
+
         speedEval = "";
         if((simuBoard.getAccelerometer()[1] >= 25) && (simuBoard.getAccelerometer()[1] <= 35)){ // Between 25 and 35 is average top speed
             speedEval = "You are achieving the average top snowboarding speed." +
