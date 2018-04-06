@@ -1,5 +1,6 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
+import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -43,7 +44,8 @@ public class SimuBoardTest extends AppCompatActivity {
             public void onClick(View v) {
                 // FIXME: add real device
                 //real connection stuff
-                HashMap<String, String> devicesToConnectTo = board.searchDevices();
+                // is that what needs done? I fixed the search devices arguments thing but I'm not sure if its right -wesley
+                HashMap<String, String> devicesToConnectTo = board.searchDevices(new HashMap<String, BluetoothDevice>());
                 board.pairPhone();
 
 

@@ -25,7 +25,8 @@ public class GraphTest extends AppCompatActivity{
         setContentView(R.layout.graph_test);
 
         board = new SimuBoard();
-        board.pairPhone(new Device("id", false));
+        board.pairPhone();
+        //board.pairPhone(new Device("id", false));
 
         double x, y;
         x = 0;
