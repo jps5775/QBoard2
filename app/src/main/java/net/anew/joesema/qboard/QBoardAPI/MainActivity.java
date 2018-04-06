@@ -15,6 +15,7 @@ import net.anew.joesema.qboard.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button bTitle;
+    private Button bRunCritique;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +23,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
         bTitle = (Button)findViewById(R.id.bTitleStart);
+        bRunCritique = findViewById(R.id.bRunCritique);
 
         bTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SimuBoardTest.class);
+                startActivity(intent);
+            }
+        });
+
+        bRunCritique.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RunCritique.class);
                 startActivity(intent);
             }
         });
