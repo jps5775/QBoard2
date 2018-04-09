@@ -16,7 +16,7 @@
         android:textSize="32dp"
         android:textStyle="bold" />
 
-    <Image
+    <ImageView
         android:id="@+id/watch"
         :layout_above="35dp"
         android:layout_width="wrap_content"
@@ -38,11 +38,14 @@
         android:ems="10"
         android:inputType="textMultiLine" />
 
-    <Image
+    <ImageView
         android:id="@+id/walking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic"/>
+        android:layout_alignEnd="@+id/gForceAdvice"
+        android:layout_below="@+id/watch"
+        android:layout_marginTop="36dp"
+        android:src="@mipmap/walking_background" />
 
     <EditText
         android:id="@+id/gyroAdvice"
@@ -53,6 +56,15 @@
         android:layout_marginBottom="90dp"
         android:ems="10"
         android:inputType="textMultiLine" />
+
+    <ImageView
+        android:id="@+id/flippy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/gyroAdvice"
+        android:layout_below="@+id/walking"
+        android:layout_marginTop="24dp"
+        android:src="@mipmap/flippy_background" />
 
     <EditText
         android:id="@+id/gForceAdvice"
