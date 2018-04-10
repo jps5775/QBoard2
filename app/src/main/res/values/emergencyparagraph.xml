@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="emergency_paragraph">
+        To send an emergency alert, your phone wil use the number \n
+        entered here to send an emergency alert to ski patrol. This \n
+        is achieved by sending a text message to the number provided \n
+        below containing the latitude and longitude gathered from your \n
+        phone's GPS. Standard text and data rates may apply.
+    </string>
+</resources>
