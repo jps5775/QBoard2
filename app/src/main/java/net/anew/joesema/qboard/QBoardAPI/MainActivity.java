@@ -1,34 +1,39 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothManager;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Toast;
 
 import net.anew.joesema.qboard.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button bTitle;
+    private Button bScanDevices;
     private Button bRunCritique;
+    private Button bViewRunData;
+    private Button bViewAggData;
+    private boolean isConnected = true; // change later data is attained
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        bTitle = (Button)findViewById(R.id.bTitleStart);
-        bRunCritique = findViewById(R.id.bRunCritique);
+        bScanDevices = (Button)findViewById(R.id.bScanDevices);
+        bRunCritique = (Button)findViewById(R.id.bRunCritique);
+        bViewRunData = (Button)findViewById(R.id.bViewRunData);
+        bViewAggData = (Button)findViewById(R.id.bViewAggregateData);
 
-        bTitle.setOnClickListener(new View.OnClickListener() {
+        bScanDevices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SimuBoardTest.class);
+
+                // TODO: Use only for selecting connections
+                Intent intent = new Intent(MainActivity.this, ShowDevices.class);
                 startActivity(intent);
             }
         });
@@ -36,10 +41,54 @@ public class MainActivity extends AppCompatActivity {
         bRunCritique.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(noConnection()){
+                    return;
+                }
+
                 Intent intent = new Intent(MainActivity.this, RunCritique.class);
                 startActivity(intent);
             }
         });
 
+        bViewRunData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(noConnection()){
+                    return;
+                }
+
+                // TODO: View Run Data
+                Intent intent = new Intent(MainActivity.this, ViewRunData.class);
+                startActivity(intent);
+            }
+        });
+
+        bViewAggData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(noConnection()){
+                    return;
+                }
+
+                // TODO: View Agg Data
+                Intent intent = new Intent(MainActivity.this, ViewAggData.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
+    private boolean noConnection(){
+        if(!isConnected){
+            Toast.makeText(MainActivity.this, "Connect to your Device to the Snowboard!",
+                    Toast.LENGTH_LONG).show();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

@@ -36,20 +36,19 @@ public class SimuBoard {
      * Searches for bluetooth enabled devices to connect to.
      * @return A List of devices representing all bluetooth enabled devices in the area
      */
-    public HashMap<String, String> searchDevices(HashMap<String, BluetoothDevice> hashy){
-
-        scan.startScan(hashy);
-
-        return scan.scanResults;
+    public List<Device> searchDevices(){
+        List<Device> list = new ArrayList<Device>();
+        for (int i = 0; i < 10; i++) {
+            list.add(new Device( "000" + i, false));
+        }
+        return list;
     }
     /**
      * Connects the device passed in to the main phone device.
      * @return A boolean representing that the device is paired.
      */
-    public boolean pairPhone(){
-        Device deviceToConnect = new Device(scan.SERVICE_UUID.toString(), false);
+    public boolean pairPhone(Device deviceToConnect){
         deviceToConnect.setPaired(true);
-
         mainDevice = deviceToConnect;
         return true;
     }

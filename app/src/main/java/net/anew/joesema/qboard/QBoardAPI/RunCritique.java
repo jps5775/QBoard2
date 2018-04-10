@@ -1,7 +1,7 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
-import android.app.Activity;
 import android.os.*;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import net.anew.joesema.qboard.R;
@@ -10,7 +10,7 @@ import net.anew.joesema.qboard.R;
  * Created by laurenritter on 4/3/18.
  */
 
-public class RunCritique extends Activity{
+public class RunCritique extends AppCompatActivity {
     private SimuBoard simuBoard;
     private String speedEval;
     private String gyroEval;
@@ -21,23 +21,24 @@ public class RunCritique extends Activity{
     private EditText gyroAdvice;
     private EditText gForceAdvice;
 
-    public void onCreate(Bundle savedInstanceState, Device device){
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.critique_advice);
 
-        speedAdvice = findViewById(R.id.speedAdvice);
-        gyroAdvice = findViewById(R.id.gyroAdvice);
-        gForceAdvice = findViewById(R.id.gForceAdvice);
+        speedAdvice = (EditText)findViewById(R.id.speedAdvice);
+        gyroAdvice = (EditText)findViewById(R.id.gyroAdvice);
+        gForceAdvice = (EditText)findViewById(R.id.gForceAdvice);
         runSpeed();
         runGyro();
-        runGForce(device);
+        //runGForce(new Device("", true));
     }
 
     public void runSpeed(){ // We need to get the top speed data of the most previous run so we can get the data.
         // we're setting speed to a static number for now
         // the real way do it would calculate speed from accelerometer data
         // but we're doing static for now to get it okay for submission
-        speed = 20;
+        speed = 26;
 
         speedEval = "";
         if((speed >= 25) && (speed <= 35)){ // Between 25 and 35 is average top speed
@@ -59,15 +60,15 @@ public class RunCritique extends Activity{
     }
 
     public void runGyro(){
-        gyroEval = "";
-        if((simuBoard.getGyroscope()[1] >= 90) && (simuBoard.getGyroscope()[1] <= 270)){ //We are saying that the average is between these degrees
+        gyroEval = "you're killing the snowboard game.";
+        /*if((simuBoard.getGyroscope()[1] >= 90) && (simuBoard.getGyroscope()[1] <= 270)){ //We are saying that the average is between these degrees
             gyroEval="Your rotation is on point.";
         }else if(simuBoard.getGyroscope()[1] < 90){
             gyroEval="you probably fell on your face";
         }else if(simuBoard.getGyroscope()[1] > 270){
             gyroEval="you're killing the snowboard game.";
         }
-
+        */
         gyroAdvice.setText(gyroEval);
     }
 
