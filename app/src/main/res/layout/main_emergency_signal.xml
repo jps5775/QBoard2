@@ -18,6 +18,39 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/emergency_paragraph"/>
+        android:text="@string/emergency_paragraph"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="13dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter New Ski Patrol Number"
+        android:textSize="11dp"
+        android:textColor="@color/colorPrimaryWhite"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="40dp"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Your Entry"
+        android:layout_marginTop="225dp"
+        android:textColor="@color/colorPrimaryWhite"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/editText2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:background="@color/colorAccentDpPurple"
+        android:text="Use Last Saved Number"
+        android:textColor="@color/colorPrimaryWhite" />
 
 </RelativeLayout>
