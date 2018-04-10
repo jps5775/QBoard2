@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="net.anew.joesema.qboard.QBoardAPI.MainActivity" >
+    tools:context="net.anew.joesema.qboard.QBoardAPI.MainActivity"
+    android:background="@color/colorPrimaryDark">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +17,8 @@
             android:gravity="center"
             android:text="Welcome to QBoard!"
             android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryWhite"/>
 
     </LinearLayout>
 
@@ -26,7 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Scan for Devices to Connect" />
+        android:text="Scan for Devices to Connect"
+        android:textColor="@color/colorPrimaryWhite"
+        android:background="@color/colorAccentDpPurple" />
 
     <Button
         android:id="@+id/bRunCritique"
@@ -35,7 +39,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_below="@+id/bScanDevices"
-        android:text="View Run Critique" />
+        android:text="View Run Critique"
+        android:textColor="@color/colorPrimaryWhite"
+        android:background="@color/colorAccentDpPurple"/>
 
     <Button
         android:id="@+id/bViewRunData"
@@ -45,7 +51,8 @@
         android:layout_centerVertical="true"
         android:layout_below="@+id/bRunCritique"
         android:text="View Run Data"
-        />
+        android:textColor="@color/colorPrimaryWhite"
+        android:background="@color/colorAccentDpPurple"/>
 
     <Button
         android:id="@+id/bViewAggregateData"
@@ -55,7 +62,8 @@
         android:layout_centerVertical="true"
         android:layout_below="@+id/bViewRunData"
         android:text="View Aggregate Data"
-        />
+        android:textColor="@color/colorPrimaryWhite"
+        android:background="@color/colorAccentDpPurple"/>
 
 
 </RelativeLayout>

@@ -60,7 +60,9 @@ public class RunCritique extends AppCompatActivity {
     }
 
     public void runGyro(){
-        gyroEval = "you're killing the snowboard game.";
+        //advice from https://snowboardaddiction.com/blogs/intermediate-riding/17238148-how-to-turn-on-a-snowboard
+        gyroEval = "Try using your head to spot in order to make sharper turns. +" +
+                "Your core should also be engage so that you can turn the snowboard underneath you.";
         /*if((simuBoard.getGyroscope()[1] >= 90) && (simuBoard.getGyroscope()[1] <= 270)){ //We are saying that the average is between these degrees
             gyroEval="Your rotation is on point.";
         }else if(simuBoard.getGyroscope()[1] < 90){
@@ -75,11 +77,12 @@ public class RunCritique extends AppCompatActivity {
     public void runGForce(Device device){
         gForceEval = "";
         if((simuBoard.getGyroscope(device)[1] >= 1) && (simuBoard.getGyroscope(device)[1] <= 2.5)){
-            gForceEval = "guess what? you're normal and no one cares what you do";
+            gForceEval = "You're on the right track! Keep tearin' it up!";
         }else if(simuBoard.getGyroscope(device)[1] < 1){
-            gForceEval = "why are you crawling down the hill?";
+            gForceEval = "Try to distribute your weight evenly on the board. +" +
+                    "Sometimes the trail can effect your g forces. Try stepping off the bunny hill.";
         }else if(simuBoard.getGyroscope(device)[1] > 2.5){ //Olympic level
-            gForceEval = "OKAY showoff";
+            gForceEval = "You're riding at Olympic level!";
         }
 
         gForceAdvice.setText(gForceEval);
