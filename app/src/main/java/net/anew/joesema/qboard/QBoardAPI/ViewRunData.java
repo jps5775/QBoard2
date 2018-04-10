@@ -1,6 +1,5 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
-import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,15 +9,13 @@ import android.widget.EditText;
 
 import net.anew.joesema.qboard.R;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by JoeSema on 3/25/18.
  */
 
-public class SimuBoardTest extends AppCompatActivity {
+public class ViewRunData extends AppCompatActivity {
 
     private EditText gryoText;
     private EditText accelText;
@@ -29,7 +26,7 @@ public class SimuBoardTest extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.simuboard_test);
+        setContentView(R.layout.view_run_data);
 
         board = new SimuBoard();
 
@@ -45,12 +42,12 @@ public class SimuBoardTest extends AppCompatActivity {
                 // FIXME: add real device
                 //real connection stuff
                 // is that what needs done? I fixed the search devices arguments thing but I'm not sure if its right -wesley
-                HashMap<String, String> devicesToConnectTo = board.searchDevices(new HashMap<String, BluetoothDevice>());
-                board.pairPhone();
+                //HashMap<String, String> devicesToConnectTo = board.searchDevices(new HashMap<String, BluetoothDevice>());
+                //board.pairPhone();
 
 
                 //fake connection stuff
-                /*List<Device> list = board.searchDevices();
+                List<Device> list = board.searchDevices();
                 for (int i = 0; i < list.size(); i++){
                     Log.v("Test Connections:", " " + list.get(i));
                 }
@@ -58,7 +55,7 @@ public class SimuBoardTest extends AppCompatActivity {
                 Log.v("Connected with: ", "" + list.get(0));
                 if (board.pairPhone(list.get(0))){
                     connectedText.setText("true");
-                }*/
+                }
 
             }
         });

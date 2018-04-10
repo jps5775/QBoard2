@@ -11,31 +11,51 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/titleText"
-            android:textSize="36sp"
+            android:text="Welcome to QBoard!"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/bTitleStart"
+        android:id="@+id/bScanDevices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Connect" />
+        android:text="Scan for Devices to Connect" />
 
     <Button
         android:id="@+id/bRunCritique"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="160dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/bScanDevices"
         android:text="View Run Critique" />
+
+    <Button
+        android:id="@+id/bViewRunData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/bRunCritique"
+        android:text="View Run Data"
+        />
+
+    <Button
+        android:id="@+id/bViewAggregateData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/bViewRunData"
+        android:text="View Aggregate Data"
+        />
 
 
 </RelativeLayout>
