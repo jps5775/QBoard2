@@ -44,13 +44,49 @@
         android:id="@+id/editText2" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/useLastNumber"
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:layout_alignStart="@+id/button4"
         android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="14dp"
         android:background="@color/colorAccentDpPurple"
         android:text="Use Last Saved Number"
-        android:textColor="@color/colorPrimaryWhite" />
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="8dp" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/useLastNumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorAccentDpPurple"
+        android:text="Save Number"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="8dp"
+        android:id="@+id/button4" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:text="NOTE: Alert will not  work unless an emergency number is set."
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="8dp" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/button4"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorAccentOrange"
+        android:text="Send Alert"
+        android:textColor="@color/colorPrimaryWhite"
+        android:id="@+id/button5" />
 
 </RelativeLayout>
