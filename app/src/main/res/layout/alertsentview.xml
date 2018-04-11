@@ -12,7 +12,8 @@
         android:textSize="36dp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:id="@+id/textView3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +22,16 @@
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="15dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="325dp"/>
+        android:layout_marginTop="325dp"
+        android:id="@+id/textView4" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:src="@mipmap/check_background" />
 
     <Button
         android:id="@+id/backbutton"
