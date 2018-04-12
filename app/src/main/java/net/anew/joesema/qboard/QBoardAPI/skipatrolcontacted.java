@@ -33,7 +33,9 @@ public class skipatrolcontacted extends AppCompatActivity {
         try {
             sleep(10000);
             Intent intent = new Intent(skipatrolcontacted.this, AlertSent.class);
-            intent.putExtra("eNumber", extras.getString("eNumber"));
+            if (extras != null) {
+                intent.putExtra("eNumber", extras.getString("eNumber"));
+            }
             startActivity(intent);
         }
         catch (Exception e)

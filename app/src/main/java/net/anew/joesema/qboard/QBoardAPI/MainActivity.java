@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bRunCritique;
     private Button bViewRunData;
     private Button bViewAggData;
+    private Button bEmergency;
     private boolean isConnected = true; // change later data is attained
     private String eNumber;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         bRunCritique = (Button)findViewById(R.id.bRunCritique);
         bViewRunData = (Button)findViewById(R.id.bViewRunData);
         bViewAggData = (Button)findViewById(R.id.bViewAggregateData);
+        bEmergency = findViewById(R.id.bViewEmergencyInfo);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -100,6 +102,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        bEmergency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Emergency.class);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
+                startActivity(intent);
+            }
+        });
     }
 
     private boolean noConnection(){

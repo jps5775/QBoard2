@@ -36,7 +36,11 @@
         <activity android:name=".QBoardAPI.GraphTest" />
         <activity android:name=".QBoardAPI.RunCritique" />
         <activity android:name=".QBoardAPI.ShowDevices" />
-        <activity android:name=".QBoardAPI.ViewAggData"></activity>
+        <activity android:name=".QBoardAPI.ViewAggData" />
+        <activity android:name=".QBoardAPI.Emergency" />
+        <activity android:name=".QBoardAPI.skipatrolcontacted" />
+        <activity android:name=".QBoardAPI.AlertSent" />
+
     </application>
 
 </manifest>
