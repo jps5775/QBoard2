@@ -66,12 +66,21 @@ public class Emergency extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private void saveNumber()
     {
         currentNumber = emergencyNumber.getText().toString();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("eNumber", currentNumber);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
 

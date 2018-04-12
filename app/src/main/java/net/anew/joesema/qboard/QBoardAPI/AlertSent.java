@@ -12,13 +12,13 @@ public class AlertSent extends AppCompatActivity {
 
     private String eNumber;
     private Button backButton;
+    Bundle extras = getIntent().getExtras();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alertsentview);
 
-        Bundle extras = getIntent().getExtras();
         eNumber = extras.getString("eNumber");
         backButton = findViewById(R.id.backButton);
 
@@ -38,5 +38,12 @@ public class AlertSent extends AppCompatActivity {
         // do stuff with the emergency number
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("eNumber", extras.getString("eNumber"));
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 
 }
