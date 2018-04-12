@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import net.anew.joesema.qboard.R;
 
+import static java.lang.Thread.getAllStackTraces;
 import static java.lang.Thread.sleep;
 
 public class skipatrolcontacted extends AppCompatActivity {
@@ -31,8 +32,8 @@ public class skipatrolcontacted extends AppCompatActivity {
         try {
             sleep(10000);
             Intent intent = new Intent(skipatrolcontacted.this, AlertSent.class);
-            // hey joe, same thing here buddy
-            intent.putExtra("eNumber", savedInstanceState.getString("eNumber"));
+            Bundle extras = getIntent().getExtras();
+            intent.putExtra("eNumber", extras.getString("eNumber"));
             startActivity(intent);
         }
         catch (Exception e)

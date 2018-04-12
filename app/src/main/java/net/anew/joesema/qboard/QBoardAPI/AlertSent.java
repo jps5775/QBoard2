@@ -18,13 +18,15 @@ public class AlertSent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alertsentview);
 
-        eNumber = savedInstanceState.getString("eNumber");
+        Bundle extras = getIntent().getExtras();
+        eNumber = extras.getString("eNumber");
         backButton = findViewById(R.id.backButton);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AlertSent.this, Emergency.class);
+
                 startActivity(intent);
             }
         });

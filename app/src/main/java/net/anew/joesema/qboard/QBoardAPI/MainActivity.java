@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bViewRunData;
     private Button bViewAggData;
     private boolean isConnected = true; // change later data is attained
+    private String eNumber;
 
 
     @Override
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         bRunCritique = (Button)findViewById(R.id.bRunCritique);
         bViewRunData = (Button)findViewById(R.id.bViewRunData);
         bViewAggData = (Button)findViewById(R.id.bViewAggregateData);
+
+        Bundle extras = getIntent().getExtras();
+        eNumber = extras.getString("eNumber");
 
         bScanDevices.setOnClickListener(new View.OnClickListener() {
             @Override
