@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // TODO: Use only for selecting connections
                 Intent intent = new Intent(MainActivity.this, ShowDevices.class);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
                 startActivity(intent);
             }
         });
@@ -51,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(MainActivity.this, RunCritique.class);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
                 startActivity(intent);
             }
         });
@@ -65,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // TODO: View Run Data
                 Intent intent = new Intent(MainActivity.this, ViewRunData.class);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
                 startActivity(intent);
             }
         });
@@ -79,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // TODO: View Agg Data
                 Intent intent = new Intent(MainActivity.this, ViewAggData.class);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
                 startActivity(intent);
             }
         });
