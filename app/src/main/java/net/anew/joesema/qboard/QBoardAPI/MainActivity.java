@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             eNumber = extras.getString("eNumber");
+            Toast.makeText(MainActivity.this, extras.getString("eNumber"),
+                    Toast.LENGTH_LONG).show();
         }
         bScanDevices.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,13 +108,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Emergency.class);
-                if(extras != null)
-                {
-                    intent.putExtra("eNumber", extras.getString("eNumber"));
-                }
+                intent.putExtra("eNumber", eNumber);
                 startActivity(intent);
             }
         });
+
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            eNumber = extras.getString("eNumber");
+            // testing toast
+            Toast.makeText(MainActivity.this, extras.getString("eNumber"),
+                    Toast.LENGTH_LONG).show();
+
+        }
+
     }
 
     private boolean noConnection(){

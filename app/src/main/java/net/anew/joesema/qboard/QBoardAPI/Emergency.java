@@ -55,8 +55,6 @@ public class Emergency extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveNumber();
-                Toast.makeText(Emergency.this, "Number Saved: " + currentNumber,
-                        Toast.LENGTH_LONG).show();
             }
         });
 
@@ -74,15 +72,17 @@ public class Emergency extends AppCompatActivity {
     private void saveNumber()
     {
         currentNumber = emergencyNumber.getText().toString();
-
+        Toast.makeText(Emergency.this, "Number Saved: " + currentNumber,
+                Toast.LENGTH_LONG).show();
     }
+
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent();
+        Intent intent = new Intent(Emergency.this, MainActivity.class);
         intent.putExtra("eNumber", currentNumber);
-        setResult(RESULT_OK, intent);
-        finish();
+        startActivity(intent);
+        //super.onBackPressed();
     }
 
 

@@ -17,6 +17,8 @@ public class skipatrolcontacted extends AppCompatActivity {
 
     private Button backButton;
     Bundle extras;
+    Handler handler;
+    Runnable alert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class skipatrolcontacted extends AppCompatActivity {
             }
         });
 
-        new Handler().postDelayed(new Runnable() {
+        alert = new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(skipatrolcontacted.this, AlertSent.class);
@@ -44,24 +46,18 @@ public class skipatrolcontacted extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 10000);
+        };
 
-//        try {
-//            sleep(10000);
-//            Intent intent = new Intent(skipatrolcontacted.this, AlertSent.class);
-//
-//            startActivity(intent);
-//        }
-//        catch (Exception e)
-//        {
-//            cancelEmergency();
-//        }
+        handler = new Handler();
+        handler.postDelayed(alert, 10000);
+
 
     }
 
 
     private void cancelEmergency()
     {
+
         Intent intent = new Intent(skipatrolcontacted.this, Emergency.class);
         if (extras != null) {
             intent.putExtra("eNumber", extras.getString("eNumber"));
@@ -71,10 +67,9 @@ public class skipatrolcontacted extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent();
-        intent.putExtra("eNumber", extras.getString("eNumber"));
-        setResult(RESULT_OK, intent);
-        finish();
+        cancelEmergency();
+        handler.removeCallbacks(alert);
     }
+
 
 }

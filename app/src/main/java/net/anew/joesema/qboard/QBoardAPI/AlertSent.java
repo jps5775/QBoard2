@@ -22,12 +22,6 @@ public class AlertSent extends AppCompatActivity {
 
         extras = getIntent().getExtras();
 
-        // testing toast
-        if (extras != null) {
-            Toast.makeText(AlertSent.this, extras.getString("eNumber"),
-                    Toast.LENGTH_LONG).show();
-        }
-
         if (extras != null) {
             eNumber = extras.getString("eNumber");
         }
