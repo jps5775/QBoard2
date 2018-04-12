@@ -4,7 +4,7 @@
     <color name="colorPrimaryWhite">#FFFFFF</color>
     <color name="colorPrimaryDark">#132335</color>
     <color name="colorAccentOrange">#B23000</color>
-    <color name="colorAccentLtPurple">#976DD0</color>
+    <color name="colorAccentLtPurple">#976dd0</color>
     <color name="colorAccentDpPurple">#33214C</color>
     <color name="colorAccentGrey">#A7A7A7</color>
 </resources>
