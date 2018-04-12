@@ -8,11 +8,13 @@ import android.widget.Button;
 
 import net.anew.joesema.qboard.R;
 
+import static java.lang.Thread.getAllStackTraces;
 import static java.lang.Thread.sleep;
 
 public class skipatrolcontacted extends AppCompatActivity {
 
     private Button backButton;
+    Bundle extras = getIntent().getExtras();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,7 @@ public class skipatrolcontacted extends AppCompatActivity {
         try {
             sleep(10000);
             Intent intent = new Intent(skipatrolcontacted.this, AlertSent.class);
-            // hey joe, same thing here buddy
-            intent.putExtra("eNumber", savedInstanceState.getString("eNumber"));
+            intent.putExtra("eNumber", extras.getString("eNumber"));
             startActivity(intent);
         }
         catch (Exception e)
@@ -48,4 +49,13 @@ public class skipatrolcontacted extends AppCompatActivity {
         Intent intent = new Intent(skipatrolcontacted.this, Emergency.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("eNumber", extras.getString("eNumber"));
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
 }
