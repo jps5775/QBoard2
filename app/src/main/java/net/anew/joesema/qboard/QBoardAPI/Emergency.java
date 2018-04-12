@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import net.anew.joesema.qboard.R;
 
@@ -30,16 +31,23 @@ public class Emergency extends AppCompatActivity {
         bSendSignal = findViewById(R.id.button5);
 
         // Joe's intent thing
-        Intent intent = new Intent(Emergency.this, MainActivity.class);
-        intent.putExtra("eNumber", "8145550911");
+        Bundle extras = getIntent().getExtras();
 
         //button stuff
         bUseLastNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Is this right, joe? -Wesley's shitty guess
-                emergencyNumber.setText(savedInstanceState.getString("eNumber"));
-                saveNumber();
+
+                if(extras != null)
+                {
+                    emergencyNumber.setText(extras.getString("eNumber"));
+                    saveNumber();
+                }
+                else
+                {
+                    Toast.makeText(Emergency.this, "There is no previously used emergency number!",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -54,7 +62,7 @@ public class Emergency extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Emergency.this, skipatrolcontacted.class);
-                intent.putExtra("eNumber", "8145550911");
+                intent.putExtra("eNumber", currentNumber);
                 startActivity(intent);
             }
         });
