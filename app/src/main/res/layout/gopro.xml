@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/goProName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="28dp"
+        android:text="Connected GoPro Name"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/connectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/goProName"
+        android:layout_marginEnd="27dp"
+        android:background="@color/colorAccentDpPurple"
+        android:text="Connect"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/whatConnected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/connectButton"
+        android:layout_alignStart="@+id/goProName"
+        android:text="Status Connected: "
+        android:textColor="@color/colorAccentGrey"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/connectionStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/whatConnected"
+        android:layout_alignBottom="@+id/whatConnected"
+        android:layout_toEndOf="@+id/whatConnected"
+        android:text="Connected"
+        android:textColor="@color/colorAccentGrey"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/startRecordingButton"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/whatConnected"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp"
+        android:background="@color/colorAccentOrange"
+        android:text="Start Recording"
+        android:textColor="@color/colorPrimaryWhite" />
+
+    <TextView
+        android:id="@+id/fpsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/whatConnected"
+        android:layout_below="@+id/startRecordingButton"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="84dp"
+        android:text="FPS"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccentGrey"
+        android:textSize="18dp" />
+
+    <SeekBar
+        android:id="@+id/fpsSeekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/resolutionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/fpsLabel"
+        android:layout_below="@+id/fpsLabel"
+        android:layout_marginTop="30dp"
+        android:text="Resolution"
+        android:textColor="@color/colorAccentGrey"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <SeekBar
+        android:id="@+id/resolutionSeekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/fieldOfViewLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/resolutionLabel"
+        android:layout_below="@+id/resolutionLabel"
+        android:layout_marginTop="31dp"
+        android:text="Field of View"
+        android:textColor="@color/colorAccentGrey"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <SeekBar
+        android:id="@+id/fieldSeekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/viewFeedButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorAccentDpPurple"
+        android:text="View Live Feed"
+        android:textColor="@color/colorPrimaryWhite" />
+
+</RelativeLayout>
