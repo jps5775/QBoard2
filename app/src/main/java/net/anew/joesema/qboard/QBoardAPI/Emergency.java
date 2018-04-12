@@ -55,6 +55,8 @@ public class Emergency extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveNumber();
+                Toast.makeText(Emergency.this, "Number Saved: " + currentNumber,
+                        Toast.LENGTH_LONG).show();
             }
         });
 

@@ -37,7 +37,8 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Your Entry"
+        android:hint="Your Entry"
+        android:textColorHint="@color/colorPrimaryWhite"
         android:layout_marginTop="225dp"
         android:textColor="@color/colorPrimaryWhite"
         android:layout_centerHorizontal="true"
