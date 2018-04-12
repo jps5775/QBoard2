@@ -30,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
         bViewAggData = (Button)findViewById(R.id.bViewAggregateData);
 
         Bundle extras = getIntent().getExtras();
-        eNumber = extras.getString("eNumber");
-
+        if (extras != null) {
+            eNumber = extras.getString("eNumber");
+        }
         bScanDevices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
