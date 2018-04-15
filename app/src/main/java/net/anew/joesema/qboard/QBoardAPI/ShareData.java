@@ -9,8 +9,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import net.anew.joesema.qboard.R;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by Amber Grace Ebersole on 4/11/2018.
@@ -22,21 +26,37 @@ public class ShareData extends AppCompatActivity {
     private static String LayoverText;
     private Button createImage;
 
-    //share_data_view view = new share_data_view(this);
+    private Button bShare;
+    private TextView tOverlay;
+    private TextView tShareWith;
+    private TextView tHashtag;
+    private ImageView iPicture;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.share_data_view);
 
+        //Set view elements
+        bShare = (Button)findViewById(R.id.shareButton);
+        tOverlay = (TextView)findViewById(R.id.textView5);
+        tShareWith = (TextView)findViewById(R.id.textView3);
+        tHashtag = (TextView)findViewById(R.id.textView4);
+        iPicture = (ImageView)findViewById(R.id.imageView);
+
+
+        Bundle extras = getIntent().getExtras();
+
         createImage = (Button) findViewById(R.id.generateButton);
+        //accelData = simuBoard.getAccelerometer()[1];
+        LayoverText = "I was shredding at " + accelData + " mph while Snowboarding today!";
+
 
         createImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Bitmap bitmap = BitmapFactory.decodeResource(ShareData.this.getResources(), R.drawable.imagebmp);
-
-                //Bitmap bitmap = new bitmap (..\res\ShareImage.bmp); // Load your bitmap here
                 Canvas canvas = new Canvas(bitmap);
                 Paint paint = new Paint();
                 paint.setColor(Color.WHITE);
@@ -46,21 +66,6 @@ public class ShareData extends AppCompatActivity {
                 v.draw(canvas);
             }
         });
-    }
-    public void main(String[] args) throws Exception {
-        accelData = simuBoard.getAccelerometer()[1];
-        LayoverText = "I was shredding at " + accelData + " mph while Snowboarding today!";
-
-        //static Bitmap = createBitmap(Picture source, int 230, int 2300, Bitmap.Config ARGB_8888);
-
-
-        /**final BufferedImage image = ImageIO.read(new URL( "http://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png"));
-
-        Graphics g = image.getGraphics();
-        g.setFont(g.getFont().deriveFont(30f));
-        g.drawString(LayoverText, 100, 100);
-        g.dispose();
-        ImageIO.write(image, "png", new File("test.png"));**/
     }
 
 }

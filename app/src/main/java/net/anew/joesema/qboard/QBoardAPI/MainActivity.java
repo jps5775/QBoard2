@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bRunCritique;
     private Button bViewRunData;
     private Button bViewAggData;
+    private Button bShareData;
     private Button bEmergency;
     private boolean isConnected = true; // change later data is attained
     private String eNumber;
@@ -29,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
         bRunCritique = (Button)findViewById(R.id.bRunCritique);
         bViewRunData = (Button)findViewById(R.id.bViewRunData);
         bViewAggData = (Button)findViewById(R.id.bViewAggregateData);
-        bEmergency = findViewById(R.id.bViewEmergencyInfo);
+        bShareData = (Button)findViewById(R.id.bShareData);
+        bEmergency = (Button)findViewById(R.id.bViewEmergencyInfo);
 
-        Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
         if (extras != null) {
             eNumber = extras.getString("eNumber");
             Toast.makeText(MainActivity.this, extras.getString("eNumber"),
@@ -100,6 +102,15 @@ public class MainActivity extends AppCompatActivity {
                 {
                     intent.putExtra("eNumber", extras.getString("eNumber"));
                 }
+                startActivity(intent);
+            }
+        });
+
+        bShareData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ShareData.class);
+                intent.putExtra("eNumber", eNumber);
                 startActivity(intent);
             }
         });

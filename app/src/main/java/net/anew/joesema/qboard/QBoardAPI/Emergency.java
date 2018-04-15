@@ -31,7 +31,7 @@ public class Emergency extends AppCompatActivity {
         bSendSignal = findViewById(R.id.button5);
 
         // Joe's intent thing
-        Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
 
         //button stuff
         bUseLastNumber.setOnClickListener(new View.OnClickListener() {
