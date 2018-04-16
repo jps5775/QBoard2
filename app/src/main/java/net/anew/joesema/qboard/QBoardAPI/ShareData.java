@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -56,14 +57,22 @@ public class ShareData extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Bitmap bitmap = BitmapFactory.decodeResource(ShareData.this.getResources(), R.drawable.imagebmp);
-                Canvas canvas = new Canvas(bitmap);
+//                Bitmap bitmap = BitmapFactory.decodeResource(ShareData.this.getResources(), R.drawable.imagebmp);
+//                Canvas canvas = new Canvas(bitmap);
+
+                int w = 250, h = 250;
+
+                Bitmap.Config conf = Bitmap.Config.ARGB_8888;
+                Bitmap bmp = Bitmap.createBitmap(w, h, conf);
+                Canvas canvas = new Canvas(bmp);
                 Paint paint = new Paint();
                 paint.setColor(Color.WHITE);
                 paint.setTextSize(12);
                 canvas.drawText(LayoverText, 100, 100, paint);
 
                 v.draw(canvas);
+
+                iPicture.setImageDrawable(new BitmapDrawable(getResources(), bmp));
             }
         });
     }
