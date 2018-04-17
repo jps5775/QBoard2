@@ -6,90 +6,85 @@
     tools:context="net.anew.joesema.qboard.QBoardAPI.MainActivity"
     android:background="@color/colorPrimaryDark">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Welcome to QBoard!"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="40sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bScanDevices"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/bViewAggregateData"
-        android:layout_below="@+id/bRunCritique"
-        android:layout_marginTop="28dp"
-        android:background="@color/colorAccentLtPurple"
-        android:text="Scan for Devices to Connect"
-        android:textColor="@color/colorPrimaryDark" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Welcome to QBoard!"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/bRunCritique"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_alignStart="@+id/bViewAggregateData"
-        android:layout_below="@+id/tvTitle"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorPrimaryGreen"
-        android:text="View Run Critique"
-        android:textColor="@color/colorPrimaryWhite" />
+        <Button
+            android:id="@+id/bScanDevices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorAccentOrange"
+            android:text="Scan for Devices to Connect"
+            android:textColor="@color/colorPrimaryWhite" />
 
-    <Button
-        android:id="@+id/bGoProButton"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_alignStart="@+id/bScanDevices"
-        android:layout_alignTop="@+id/bRunCritique"
-        android:background="@color/colorAccentDpPurple"
-        android:text="GoPro"
-        android:textColor="@color/colorPrimaryWhite" />
+        <Button
+            android:id="@+id/bRunCritique"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryGreen"
+            android:text="View Run Critique"
+            android:textColor="@color/colorPrimaryWhite" />
 
-    <Button
-        android:id="@+id/bViewRunData"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_alignStart="@+id/bScanDevices"
-        android:layout_below="@+id/bScanDevices"
-        android:layout_marginTop="29dp"
-        android:background="@color/colorPrimaryGreen"
-        android:text="View Run Data"
-        android:textColor="@color/colorPrimaryWhite" />
+        <Button
+            android:id="@+id/bGoProButton"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccentOrange"
+            android:text="GoPro"
+            android:textColor="@color/colorPrimaryWhite" />
 
-    <Button
-        android:id="@+id/bViewAggregateData"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_alignEnd="@+id/bViewEmergencyInfo"
-        android:layout_alignTop="@+id/bViewRunData"
-        android:background="@color/colorAccentDpPurple"
-        android:text="View Aggregate Data"
-        android:textColor="@color/colorPrimaryWhite" />
+        <Button
+            android:id="@+id/bViewRunData"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryGreen"
+            android:text="View Run Data"
+            android:textColor="@color/colorPrimaryWhite" />
 
-    <Button
-        android:id="@+id/bShareData"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bViewEmergencyInfo"
-        android:layout_alignStart="@+id/bViewEmergencyInfo"
-        android:layout_marginBottom="33dp"
-        android:background="@color/colorAccentOrange"
-        android:text="Share Data"
-        android:textColor="@color/colorPrimaryWhite" />
+        <Button
+            android:id="@+id/bViewAggregateData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorAccentOrange"
+            android:text="View Aggregate Data"
+            android:textColor="@color/colorPrimaryWhite" />
 
-    <Button
-        android:id="@+id/bViewEmergencyInfo"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:background="@color/colorAccentOrange"
-        android:text="Emergency"
-        android:textColor="@color/colorPrimaryWhite" />
+        <Button
+            android:id="@+id/bShareData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimaryGreen"
+            android:text="Share Data"
+            android:textColor="@color/colorPrimaryWhite" />
+
+        <Button
+            android:id="@+id/bViewEmergencyInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorAccentOrange"
+            android:text="Emergency"
+            android:textColor="@color/colorPrimaryWhite" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
