@@ -43,7 +43,7 @@ public class ShareData extends AppCompatActivity {
         tOverlay = (TextView)findViewById(R.id.textView5);
         tShareWith = (TextView)findViewById(R.id.textView3);
         tHashtag = (TextView)findViewById(R.id.textView4);
-        iPicture = (ImageView)findViewById(R.id.imageView);
+        //iPicture = (ImageView)findViewById(R.id.imageView);
 
 
         Bundle extras = getIntent().getExtras();
@@ -60,19 +60,22 @@ public class ShareData extends AppCompatActivity {
 //                Bitmap bitmap = BitmapFactory.decodeResource(ShareData.this.getResources(), R.drawable.imagebmp);
 //                Canvas canvas = new Canvas(bitmap);
 
-                int w = 250, h = 250;
+                tOverlay.setBackgroundResource(R.mipmap.share1);
+                tOverlay.setText(LayoverText);
 
-                Bitmap.Config conf = Bitmap.Config.ARGB_8888;
-                Bitmap bmp = Bitmap.createBitmap(w, h, conf);
-                Canvas canvas = new Canvas(bmp);
-                Paint paint = new Paint();
-                paint.setColor(Color.WHITE);
-                paint.setTextSize(12);
-                canvas.drawText(LayoverText, 100, 100, paint);
+//                int w = 250, h = 250;
+//
+//                Bitmap.Config conf = Bitmap.Config.ARGB_8888;
+//                Bitmap bmp = Bitmap.createBitmap(w, h, conf);
+//                Canvas canvas = new Canvas(bmp);
+//                Paint paint = new Paint();
+//                paint.setColor(Color.WHITE);
+//                paint.setTextSize(12);
+//                canvas.drawText(LayoverText, 100, 100, paint);
 
-                v.draw(canvas);
-
-                iPicture.setImageDrawable(new BitmapDrawable(getResources(), bmp));
+                //v.draw(canvas);
+//                iPicture.setImageBitmap(bmp);
+                //iPicture.setImageDrawable(new BitmapDrawable(getResources(), bmp));
             }
         });
     }
