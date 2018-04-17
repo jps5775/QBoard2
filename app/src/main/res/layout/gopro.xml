@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
+    <!-- Seekbar information taken from http://www.zoftino.com/android-seekbar-and-custom-seekbar-examples -->
+
     <TextView
         android:id="@+id/goProName"
         android:layout_width="wrap_content"
