@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="regularSeekbar" parent="Theme.AppCompat.Light">
+    <style name="regularSeekbar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint">#A7A7A7</item>
+        <item name="andriod:progressTint">#FFFFFF</item>
         <item name="android:colorControlActivated">#FFFFFF</item>
-        <item name="andriod:colorControlNormal">#A7A7A7</item>
     </style>
 </resources>
