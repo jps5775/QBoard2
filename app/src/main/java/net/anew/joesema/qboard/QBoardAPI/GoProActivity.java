@@ -33,6 +33,7 @@ public class GoProActivity extends AppCompatActivity {
 
         bConnect = findViewById(R.id.connectButton);
         bRecord = findViewById(R.id.startRecordingButton);
+        bViewStream = findViewById(R.id.viewFeedButton);
 
         bConnect.setOnClickListener(new View.OnClickListener() {
             @Override
