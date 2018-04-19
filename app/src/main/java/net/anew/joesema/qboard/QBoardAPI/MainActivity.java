@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import net.anew.joesema.qboard.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         bShareData = (Button)findViewById(R.id.bShareData);
         bEmergency = (Button)findViewById(R.id.bViewEmergencyInfo);
         bGoPro = (Button)findViewById(R.id.bGoProButton);
-
+        
         final Bundle extras = getIntent().getExtras();
         if (extras != null) {
             eNumber = extras.getString("eNumber");
