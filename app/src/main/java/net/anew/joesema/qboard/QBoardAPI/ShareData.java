@@ -43,8 +43,8 @@ public class ShareData extends AppCompatActivity {
         tOverlay = (TextView)findViewById(R.id.textView5);
         tShareWith = (TextView)findViewById(R.id.textView3);
         tHashtag = (TextView)findViewById(R.id.textView4);
-        //iPicture = (ImageView)findViewById(R.id.imageView);
 
+        //iPicture = (ImageView)findViewById(R.id.imageView);
 
         Bundle extras = getIntent().getExtras();
 
@@ -60,7 +60,7 @@ public class ShareData extends AppCompatActivity {
 //                Bitmap bitmap = BitmapFactory.decodeResource(ShareData.this.getResources(), R.drawable.imagebmp);
 //                Canvas canvas = new Canvas(bitmap);
 
-                tOverlay.setBackgroundResource(R.mipmap.share1);
+                tOverlay.setBackgroundResource(R.drawable.gilson);
                 tOverlay.setText(LayoverText);
 
 //                int w = 250, h = 250;
