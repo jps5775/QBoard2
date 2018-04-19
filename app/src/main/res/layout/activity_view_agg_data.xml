@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="net.anew.joesema.qboard.QBoardAPI.ViewAggData">
 
     <LinearLayout
@@ -15,7 +16,9 @@
             android:id="@+id/tvAggGryo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aggregate Gyro:" />
+            android:text="Aggregate Gyro:"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/etAggGryo"
@@ -28,7 +31,9 @@
             android:id="@+id/tvAggAccel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aggregate Accel:" />
+            android:text="Aggregate Accel:"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/etAggAccel"
@@ -41,7 +46,9 @@
             android:id="@+id/tvAggConnect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connected: " />
+            android:text="Connected: "
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/etAggConnect"
@@ -51,15 +58,25 @@
 
         <Button
             android:id="@+id/bAggConnect"
-            android:layout_width="wrap_content"
+            android:layout_width="304dp"
             android:layout_height="wrap_content"
-            android:text="Connect" />
+            android:text="Connect"
+            android:background="@color/colorPrimaryGreen"
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/bAggGenData"
-            android:layout_width="wrap_content"
+            android:layout_width="304dp"
             android:layout_height="wrap_content"
-            android:text="Gen Aggregate Data" />
+            android:text="Gen Aggregate Data"
+            android:background="@color/colorPrimaryGreen"
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/bShareData"
