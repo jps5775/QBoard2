@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
+    <!-- Seekbar information taken from http://www.zoftino.com/android-seekbar-and-custom-seekbar-examples -->
+
     <TextView
         android:id="@+id/goProName"
         android:layout_width="wrap_content"
@@ -61,30 +63,13 @@
         android:textColor="@color/colorPrimaryWhite" />
 
     <TextView
-        android:id="@+id/fpsLabel"
+        android:id="@+id/resolutionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/whatConnected"
         android:layout_below="@+id/startRecordingButton"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="84dp"
-        android:text="FPS"
-        android:textStyle="bold"
-        android:textColor="@color/colorAccentGrey"
-        android:textSize="18dp" />
-
-    <SeekBar
-        android:id="@+id/fpsSeekBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/resolutionLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/fpsLabel"
-        android:layout_below="@+id/fpsLabel"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="35dp"
         android:text="Resolution"
         android:textColor="@color/colorAccentGrey"
         android:textSize="18dp"
@@ -92,16 +77,43 @@
 
     <SeekBar
         android:id="@+id/resolutionSeekBar"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resolutionLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:progress="70"
+        android:theme="@style/specialSeekbar"/>
+
+    <TextView
+        android:id="@+id/fpsLabel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/resolutionLabel"
+        android:layout_below="@+id/resolutionLabel"
+        android:layout_marginTop="50dp"
+        android:text="FPS"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccentGrey"
+        android:textSize="18dp" />
+
+    <SeekBar
+        android:id="@+id/fpsSeekBar"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fpsLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:progress="70"
+        android:theme="@style/regularSeekbar"/>
 
     <TextView
         android:id="@+id/fieldOfViewLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/resolutionLabel"
-        android:layout_below="@+id/resolutionLabel"
-        android:layout_marginTop="31dp"
+        android:layout_alignStart="@+id/fpsLabel"
+        android:layout_below="@+id/fpsLabel"
+        android:layout_marginTop="50dp"
         android:text="Field of View"
         android:textColor="@color/colorAccentGrey"
         android:textSize="18dp"
@@ -109,8 +121,12 @@
 
     <SeekBar
         android:id="@+id/fieldSeekBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fieldOfViewLabel"
+        android:layout_centerHorizontal="true"
+        android:progress="70"
+        android:theme="@style/regularSeekbar"/>
 
     <Button
         android:id="@+id/viewFeedButton"

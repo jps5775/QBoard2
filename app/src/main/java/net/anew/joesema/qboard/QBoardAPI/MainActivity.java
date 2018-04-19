@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import net.anew.joesema.qboard.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bViewAggData;
     private Button bShareData;
     private Button bEmergency;
+    private Button bGoPro;
     private boolean isConnected = true; // change later data is attained
     private String eNumber;
 
@@ -32,13 +36,15 @@ public class MainActivity extends AppCompatActivity {
         bViewAggData = (Button)findViewById(R.id.bViewAggregateData);
         bShareData = (Button)findViewById(R.id.bShareData);
         bEmergency = (Button)findViewById(R.id.bViewEmergencyInfo);
-
+        bGoPro = (Button)findViewById(R.id.bGoProButton);
+        
         final Bundle extras = getIntent().getExtras();
         if (extras != null) {
             eNumber = extras.getString("eNumber");
             Toast.makeText(MainActivity.this, extras.getString("eNumber"),
                     Toast.LENGTH_LONG).show();
         }
+
         bScanDevices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,7 +116,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ShareData.class);
-                intent.putExtra("eNumber", eNumber);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
                 startActivity(intent);
             }
         });
@@ -119,7 +128,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Emergency.class);
-                intent.putExtra("eNumber", eNumber);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
+                startActivity(intent);
+            }
+        });
+
+        bGoPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GoProActivity.class);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
                 startActivity(intent);
             }
         });

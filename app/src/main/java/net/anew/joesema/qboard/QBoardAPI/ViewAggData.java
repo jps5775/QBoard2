@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import net.anew.joesema.qboard.R;
 
 import java.util.List;
@@ -40,7 +43,11 @@ public class ViewAggData extends AppCompatActivity {
                 // is that what needs done? I fixed the search devices arguments thing but I'm not sure if its right -wesley
                 //HashMap<String, String> devicesToConnectTo = board.searchDevices(new HashMap<String, BluetoothDevice>());
                 //board.pairPhone();
+// Write a message to the database
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("message");
 
+                myRef.setValue("Hello, World!");
 
                 //fake connection stuff
                 List<Device> list = board.searchDevices();
