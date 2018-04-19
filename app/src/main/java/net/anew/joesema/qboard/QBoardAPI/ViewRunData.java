@@ -26,11 +26,11 @@ public class ViewRunData extends AppCompatActivity {
     private SimuBoard board;
     private Button shareData;
 
-    final Bundle extras = getIntent().getExtras();
-
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_run_data);
+
+        final Bundle extras = getIntent().getExtras();
 
         board = new SimuBoard();
 
