@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bRunCritique;
     private Button bViewRunData;
     private Button bViewAggData;
-    private Button bShareData;
+    //private Button bShareData;
     private Button bEmergency;
     private Button bGoPro;
     private boolean isConnected = true; // change later data is attained
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         bRunCritique = (Button)findViewById(R.id.bRunCritique);
         bViewRunData = (Button)findViewById(R.id.bViewRunData);
         bViewAggData = (Button)findViewById(R.id.bViewAggregateData);
-        bShareData = (Button)findViewById(R.id.bShareData);
+        //bShareData = (Button)findViewById(R.id.bShareData);
         bEmergency = (Button)findViewById(R.id.bViewEmergencyInfo);
         bGoPro = (Button)findViewById(R.id.bGoProButton);
         

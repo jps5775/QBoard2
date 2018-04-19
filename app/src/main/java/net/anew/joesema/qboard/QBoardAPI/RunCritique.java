@@ -8,6 +8,7 @@ import net.anew.joesema.qboard.R;
 
 /**
  * Created by laurenritter on 4/3/18.
+ * Coded by Lauren Riter and Wesley Mauk
  */
 
 public class RunCritique extends AppCompatActivity {

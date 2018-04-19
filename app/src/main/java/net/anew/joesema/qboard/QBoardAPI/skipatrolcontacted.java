@@ -13,6 +13,8 @@ import net.anew.joesema.qboard.R;
 import static java.lang.Thread.getAllStackTraces;
 import static java.lang.Thread.sleep;
 
+// Coded by Wesley Mauk
+
 public class skipatrolcontacted extends AppCompatActivity {
 
     private Button backButton;
