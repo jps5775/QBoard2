@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import net.anew.joesema.qboard.R;
 
+// Class coded by Wesley Mauk
+
 public class Emergency extends AppCompatActivity {
 
     protected String currentNumber;
