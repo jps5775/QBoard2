@@ -106,26 +106,53 @@ public class GoProActivity extends AppCompatActivity {
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
                         fpsSeekBar.setMax(3);
+                        currentRes = "4k";
                         fpsCodes = new String[] {"10", "9", "8"};
+                        optionsToast.setText("Set to 4k");
                         fovSeekBar.setEnabled(false);
                         break;
                     case 2: // 4k SuperView
                         fpsSeekBar.setEnabled(false);
                         fovSeekBar.setEnabled(false);
+                        currentRes = "4k SuperView";
                         optionsToast.setText("Set to 4k SuperView @ 24 fps Ultra Wide");
                         break;
                     case 3: // 2.7k
+                        fpsSeekBar.setEnabled(true);
+                        fpsSeekBar.setMin(1);
+                        fpsSeekBar.setMax(6);
+                        fpsCodes = new String[] {"10", "9", "8", "7", "6", "5"};
+                        fovSeekBar.setMin(1);
+                        fovSeekBar.setMax(2);
+                        fovCodes = new String[] {"1", "0"};
+                        currentRes = "2.7k";
+                        optionsToast.setText("Set to 2.7k");
                         break;
                     case 4: // 2.7k SuperView
-
+                        fpsSeekBar.setEnabled(true);
+                        fpsSeekBar.setMin(1);
+                        fpsSeekBar.setMax(2);
+                        fpsCodes = new String[] {"9", "8"};
                         fovSeekBar.setEnabled(false);
+                        currentRes = "2.7k SuperView";
+                        optionsToast.setText("Set to 2.7k SuperView Ultra Wide");
                         break;
                     case 5: // 2.7k 4:3
-
+                        fpsSeekBar.setEnabled(true);
+                        fpsSeekBar.setMin(1);
+                        fpsSeekBar.setMax(2);
+                        fpsCodes = new String[] {"9", "8"};
                         fovSeekBar.setEnabled(false);
+                        currentRes = "2.7k";
+                        optionsToast.setText("Set to 2.7k 4:3");
                         break;
                     case 6: // 1440p
-
+                        fpsSeekBar.setEnabled(true);
+                        fpsSeekBar.setMin(1);
+                        fpsSeekBar.setMax(6);
+                        fpsCodes = new String[] {"10", "9", "8", "7", "6", "5"};
+                        currentRes = "1440p";
+                        optionsToast.setText("Set to 1440p Ultra Wide");
                         fovSeekBar.setEnabled(false);
                         break;
                     case 7: // 1080p
@@ -141,6 +168,7 @@ public class GoProActivity extends AppCompatActivity {
                     case 10: // 720p (240 fps, narrow fov)
                         fpsSeekBar.setEnabled(false);
                         fovSeekBar.setEnabled(false);
+                        currentRes = "720p";
                         optionsToast.setText("Set to 720p @ 240 fps narrow FOV");
                         break;
                     case 11: // 720p (other stuff)
@@ -152,6 +180,7 @@ public class GoProActivity extends AppCompatActivity {
                     case 13: // WVGA
                         fpsSeekBar.setEnabled(false);
                         fovSeekBar.setEnabled(false);
+                        currentRes = "WVGA(480p)";
                         optionsToast.setText("Set to WVGA(480p) @ 240 fps narrow FOV");
                         break;
                 }
@@ -172,44 +201,57 @@ public class GoProActivity extends AppCompatActivity {
         });
 
         //fpsSeekbar stuff
+        fpsSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+              @Override
+              public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                  sendCommand(URI.create(settingsUri("3", fpsCodes[progress-1])));
+              }
+
+              @Override
+              public void onStartTrackingTouch(SeekBar seekBar) {
+
+              }
+
+              @Override
+              public void onStopTrackingTouch(SeekBar seekBar) {
+
+              }
+        });
 
         //fovSeekbar stuff
+        fovSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                sendCommand(URI.create(settingsUri("4", fpsCodes[progress-1])));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
     }
 
     //Sourced from: https://github.com/KonradIT/CamControl/blob/master/mobile/src/main/java/com/chernowii/camcontrol/camera/goproAPI/Camera.java
-    private void sendCommand(URI command)
-    {
+    private void sendCommand(URI command) {
         final Request request = new Request.Builder()
                 .url(HttpUrl.get(command))
                 .build();
     }
 
 
-    // FPS and FOV constants. And the method to create the associated URI
+    // The method to create the associated URI
     // Sourced from: https://github.com/KonradIT/CamControl/blob/master/mobile/src/main/java/com/chernowii/camcontrol/camera/goproAPI/Constants.java
 
     public static String settingsUri(String param, String val) {
         return commandURL + "/gp/gpControl/setting/" + param + "/" + val;
     }
-
-    //FPS
-    public static URI FR240fps= URI.create(settingsUri("3","0"));
-    public static URI FR120fps= URI.create(settingsUri("3","1"));
-    public static URI FR100fps= URI.create(settingsUri("3","2"));
-    public static URI FR60fps= URI.create(settingsUri("3","5"));
-    public static URI FR50fps= URI.create(settingsUri("3","6"));
-    public static URI FR48fps= URI.create(settingsUri("3","7"));
-    public static URI FR30fps= URI.create(settingsUri("3","8"));
-    public static URI FR25fps= URI.create(settingsUri("3","9"));
-    public static URI FR24fps= URI.create(settingsUri("3","10"));
-    public static URI FR15fps= URI.create(settingsUri("3","11"));
-    public static URI FR12point5fps= URI.create(settingsUri("3","12"));
-
-    //FOV
-    public static URI Wide= URI.create(settingsUri("4","0"));
-    public static URI Medium= URI.create(settingsUri("4","1"));
-    public static URI Narrow= URI.create(settingsUri("4","2"));
 
 
 }
