@@ -61,6 +61,17 @@
             android:layout_height="wrap_content"
             android:text="Gen Aggregate Data" />
 
+        <Button
+            android:id="@+id/bShareData"
+            android:layout_width="304dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorAccentOrange"
+            android:text="Share Data"
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"/>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
