@@ -24,7 +24,7 @@
         android:layout_marginBottom="59dp"
         android:text="Generate an image!"
         android:textColor="@color/colorPrimaryWhite"
-        android:textSize="15dp"
+        android:textSize="13dp"
         android:textAlignment="center"
         android:gravity="bottom"/>
 
