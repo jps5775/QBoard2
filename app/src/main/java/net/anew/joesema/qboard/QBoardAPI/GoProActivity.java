@@ -30,8 +30,8 @@ public class GoProActivity extends AppCompatActivity {
     private SeekBar fovSeekBar;
     private Toast optionsToast;
     boolean recording = false;
-    private String[] fpsCodes;
-    private String[] fovCodes;
+    private String[] fpsCodes = new String[]{};
+    private String[] fovCodes = new String[]{};
     private String currentRes;
     private String currentFPS;
     private String currentFOV;
@@ -48,7 +48,7 @@ public class GoProActivity extends AppCompatActivity {
         bViewStream = findViewById(R.id.viewFeedButton);
         resolutionSeekBar = findViewById(R.id.resolutionSeekBar);
             resolutionSeekBar.setMin(1);
-            resolutionSeekBar.setMax(13);
+            resolutionSeekBar.setMax(14);
         fpsSeekBar = findViewById(R.id.fpsSeekBar);
         fovSeekBar = findViewById(R.id.fieldSeekBar);
 
@@ -122,6 +122,7 @@ public class GoProActivity extends AppCompatActivity {
                         fpsSeekBar.setMin(1);
                         fpsSeekBar.setMax(6);
                         fpsCodes = new String[] {"10", "9", "8", "7", "6", "5"};
+                        fovSeekBar.setEnabled(true);
                         fovSeekBar.setMin(1);
                         fovSeekBar.setMax(2);
                         fovCodes = new String[] {"1", "0"};
@@ -156,13 +157,33 @@ public class GoProActivity extends AppCompatActivity {
                         fovSeekBar.setEnabled(false);
                         break;
                     case 7: // 1080p
+                        fpsSeekBar.setEnabled(true);
+                        fpsSeekBar.setMin(1);
+                        fpsSeekBar.setMax(7);
+                        fpsCodes = new String[] {"10", "9", "8", "7", "6", "5", "1"};
+                        currentRes = "1080p";
+                        optionsToast.setText("Set to 1080p");
+                        fovSeekBar.setEnabled(true);
+                        fovSeekBar.setMin(1);
+                        fovSeekBar.setMax(3);
+                        fovCodes = new String[] {"2", "1", "0"};
                         break;
                     case 8: // 1080p SuperView
-
+                        fpsSeekBar.setEnabled(true);
+                        fpsSeekBar.setMin(1);
+                        fpsSeekBar.setMax(6);
+                        fpsCodes = new String[] {"10", "9", "8", "7", "6", "5"};
+                        currentRes = "1080p SuperView";
+                        optionsToast.setText("Set to 1080p SuperView Ultra Wide");
                         fovSeekBar.setEnabled(false);
                         break;
                     case 9: // 960p
-
+                        fpsSeekBar.setEnabled(true);
+                        fpsSeekBar.setMin(1);
+                        fpsSeekBar.setMax(2);
+                        fpsCodes = new String[] {"6", "1"};
+                        currentRes = "960p SuperView";
+                        optionsToast.setText("Set to 960p Ultra Wide");
                         fovSeekBar.setEnabled(false);
                         break;
                     case 10: // 720p (240 fps, narrow fov)
@@ -172,9 +193,24 @@ public class GoProActivity extends AppCompatActivity {
                         optionsToast.setText("Set to 720p @ 240 fps narrow FOV");
                         break;
                     case 11: // 720p (other stuff)
+                        fpsSeekBar.setEnabled(true);
+                        fpsSeekBar.setMin(1);
+                        fpsSeekBar.setMax(5);
+                        fpsCodes = new String[] {"9", "8", "6", "5", "1"};
+                        currentRes = "720p";
+                        optionsToast.setText("Set to 720p");
+                        fovSeekBar.setEnabled(true);
+                        fovSeekBar.setMin(1);
+                        fovSeekBar.setMax(3);
+                        fovCodes = new String[] {"2", "1", "0"};
                         break;
                     case 12: // 720p SuperView
-
+                        fpsSeekBar.setEnabled(true);
+                        fpsSeekBar.setMin(1);
+                        fpsSeekBar.setMax(3);
+                        fpsCodes = new String[] {"6", "5", "1"};
+                        currentRes = "720p SuperView";
+                        optionsToast.setText("Set to 720p Ultra Wide");
                         fovSeekBar.setEnabled(false);
                         break;
                     case 13: // WVGA
@@ -204,7 +240,9 @@ public class GoProActivity extends AppCompatActivity {
         fpsSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
               @Override
               public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                  sendCommand(URI.create(settingsUri("3", fpsCodes[progress-1])));
+                  if(fpsSeekBar.isEnabled() && fpsCodes.length > 0) {
+                      sendCommand(URI.create(settingsUri("3", fpsCodes[progress - 1])));
+                  }
               }
 
               @Override
@@ -222,7 +260,9 @@ public class GoProActivity extends AppCompatActivity {
         fovSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                sendCommand(URI.create(settingsUri("4", fpsCodes[progress-1])));
+                if(fovSeekBar.isEnabled() && fovCodes.length > 0) {
+                    sendCommand(URI.create(settingsUri("4", fpsCodes[progress - 1])));
+                }
             }
 
             @Override
