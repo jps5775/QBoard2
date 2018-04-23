@@ -2,6 +2,7 @@ package net.anew.joesema.qboard.QBoardAPI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +11,15 @@ import android.widget.Toast;
 
 import net.anew.joesema.qboard.R;
 
+import java.io.IOException;
 import java.net.URI;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by laurenritter on 4/12/18.
@@ -37,11 +43,15 @@ public class GoProActivity extends AppCompatActivity {
     private String currentFOV;
     // HTTP Request stuff
     private static final String commandURL = "http://10.5.5.9";
+    OkHttpClient client = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gopro);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         bConnect = findViewById(R.id.connectButton);
         bRecord = findViewById(R.id.startRecordingButton);
@@ -72,14 +82,15 @@ public class GoProActivity extends AppCompatActivity {
                     //make sure the camera is in video mode
                     sendCommand(URI.create(commandURL + "/gp/gpControl/command/mode?p=0"));
                     // start the recording
-                    sendCommand(URI.create(commandURL + "/gp/gpControl/command/shutter"));
+                    sendCommand(URI.create(commandURL + "/gp/gpControl/command/shutter?p=1"));
+
                     bRecord.setText("STOP RECORDING");
 
                 }
                 else {
                     recording = false;
                     // stop the recording
-                    sendCommand(URI.create(commandURL + "/gp/gpControl/command/shutter"));
+                    sendCommand(URI.create(commandURL + "/gp/gpControl/command/shutter?p=0"));
                     bRecord.setText("START RECORDING");
                 }
 
@@ -105,7 +116,7 @@ public class GoProActivity extends AppCompatActivity {
                     case 1: // 4k
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(3);
+                        fpsSeekBar.setMax(4);
                         currentRes = "4k";
                         fpsCodes = new String[] {"10", "9", "8"};
                         optionsToast.setText("Set to 4k");
@@ -120,11 +131,11 @@ public class GoProActivity extends AppCompatActivity {
                     case 3: // 2.7k
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(6);
+                        fpsSeekBar.setMax(7);
                         fpsCodes = new String[] {"10", "9", "8", "7", "6", "5"};
                         fovSeekBar.setEnabled(true);
                         fovSeekBar.setMin(1);
-                        fovSeekBar.setMax(2);
+                        fovSeekBar.setMax(3);
                         fovCodes = new String[] {"1", "0"};
                         currentRes = "2.7k";
                         optionsToast.setText("Set to 2.7k");
@@ -132,7 +143,7 @@ public class GoProActivity extends AppCompatActivity {
                     case 4: // 2.7k SuperView
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(2);
+                        fpsSeekBar.setMax(3);
                         fpsCodes = new String[] {"9", "8"};
                         fovSeekBar.setEnabled(false);
                         currentRes = "2.7k SuperView";
@@ -141,7 +152,7 @@ public class GoProActivity extends AppCompatActivity {
                     case 5: // 2.7k 4:3
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(2);
+                        fpsSeekBar.setMax(3);
                         fpsCodes = new String[] {"9", "8"};
                         fovSeekBar.setEnabled(false);
                         currentRes = "2.7k";
@@ -150,7 +161,7 @@ public class GoProActivity extends AppCompatActivity {
                     case 6: // 1440p
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(6);
+                        fpsSeekBar.setMax(7);
                         fpsCodes = new String[] {"10", "9", "8", "7", "6", "5"};
                         currentRes = "1440p";
                         optionsToast.setText("Set to 1440p Ultra Wide");
@@ -159,19 +170,19 @@ public class GoProActivity extends AppCompatActivity {
                     case 7: // 1080p
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(7);
+                        fpsSeekBar.setMax(8);
                         fpsCodes = new String[] {"10", "9", "8", "7", "6", "5", "1"};
                         currentRes = "1080p";
                         optionsToast.setText("Set to 1080p");
                         fovSeekBar.setEnabled(true);
                         fovSeekBar.setMin(1);
-                        fovSeekBar.setMax(3);
+                        fovSeekBar.setMax(4);
                         fovCodes = new String[] {"2", "1", "0"};
                         break;
                     case 8: // 1080p SuperView
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(6);
+                        fpsSeekBar.setMax(7);
                         fpsCodes = new String[] {"10", "9", "8", "7", "6", "5"};
                         currentRes = "1080p SuperView";
                         optionsToast.setText("Set to 1080p SuperView Ultra Wide");
@@ -180,7 +191,7 @@ public class GoProActivity extends AppCompatActivity {
                     case 9: // 960p
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(2);
+                        fpsSeekBar.setMax(3);
                         fpsCodes = new String[] {"6", "1"};
                         currentRes = "960p SuperView";
                         optionsToast.setText("Set to 960p Ultra Wide");
@@ -195,19 +206,19 @@ public class GoProActivity extends AppCompatActivity {
                     case 11: // 720p (other stuff)
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(5);
+                        fpsSeekBar.setMax(6);
                         fpsCodes = new String[] {"9", "8", "6", "5", "1"};
                         currentRes = "720p";
                         optionsToast.setText("Set to 720p");
                         fovSeekBar.setEnabled(true);
                         fovSeekBar.setMin(1);
-                        fovSeekBar.setMax(3);
+                        fovSeekBar.setMax(4);
                         fovCodes = new String[] {"2", "1", "0"};
                         break;
                     case 12: // 720p SuperView
                         fpsSeekBar.setEnabled(true);
                         fpsSeekBar.setMin(1);
-                        fpsSeekBar.setMax(3);
+                        fpsSeekBar.setMax(4);
                         fpsCodes = new String[] {"6", "5", "1"};
                         currentRes = "720p SuperView";
                         optionsToast.setText("Set to 720p Ultra Wide");
@@ -283,6 +294,23 @@ public class GoProActivity extends AppCompatActivity {
         final Request request = new Request.Builder()
                 .url(HttpUrl.get(command))
                 .build();
+        try {
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    e.printStackTrace();
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    System.out.println("sent command to: " + command.toString());
+                }
+            });
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
 
