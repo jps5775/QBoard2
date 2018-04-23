@@ -1,8 +1,8 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
     private Button bRunCritique;
     private Button bViewRunData;
     private Button bViewAggData;
-    private Button bShareData;
+    //private Button bShareData;
     private Button bEmergency;
+    private Button bGoPro;
     private boolean isConnected = true; // change later data is attained
     private String eNumber;
 
@@ -30,15 +31,17 @@ public class MainActivity extends AppCompatActivity {
         bRunCritique = (Button)findViewById(R.id.bRunCritique);
         bViewRunData = (Button)findViewById(R.id.bViewRunData);
         bViewAggData = (Button)findViewById(R.id.bViewAggregateData);
-        bShareData = (Button)findViewById(R.id.bShareData);
+        //bShareData = (Button)findViewById(R.id.bShareData);
         bEmergency = (Button)findViewById(R.id.bViewEmergencyInfo);
-
+        bGoPro = (Button)findViewById(R.id.bGoProButton);
+        
         final Bundle extras = getIntent().getExtras();
         if (extras != null) {
             eNumber = extras.getString("eNumber");
             Toast.makeText(MainActivity.this, extras.getString("eNumber"),
                     Toast.LENGTH_LONG).show();
         }
+
         bScanDevices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,20 +109,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bShareData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ShareData.class);
-                intent.putExtra("eNumber", eNumber);
-                startActivity(intent);
-            }
-        });
-
         bEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Emergency.class);
-                intent.putExtra("eNumber", eNumber);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
+                startActivity(intent);
+            }
+        });
+
+        bGoPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GoProActivity.class);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
                 startActivity(intent);
             }
         });

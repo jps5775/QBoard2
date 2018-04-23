@@ -6,9 +6,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import net.anew.joesema.qboard.R;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ViewAggData extends AppCompatActivity {
@@ -19,11 +25,19 @@ public class ViewAggData extends AppCompatActivity {
     private Button connectButton;
     private Button genButton;
     private SimuBoard board;
+    public DatabaseReference databaseTimeStamps;
+    public String gyroData;
+    public String accelData;
+    public String currentDateTimeString;
+
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_agg_data);
 
+
+
+        //myRef.setValue("Hello, World!");
         board = new SimuBoard();
 
         gryoText = (EditText) findViewById(R.id.etAggGryo);
@@ -83,14 +97,33 @@ public class ViewAggData extends AppCompatActivity {
                 accelSum[1] = accelSum[1] / 10;
                 accelSum[2] = accelSum[2] / 10;
 
-                String gyroData = "x: " + gyroSum[0] + "\ny: "
+                gyroData = "x: " + gyroSum[0] + "\ny: "
                         + gyroSum[1] + "\nz: " + gyroSum[2];
-                String accelData = "x: " + accelSum[0] + "\ny: "
+                accelData = "x: " + accelSum[0] + "\ny: "
                         + accelSum[1] + "\nz: " + accelSum[2];
                 gryoText.setText(gyroData);
                 accelText.setText(accelData);
+
+                //FirebaseDatabase database = FirebaseDatabase.getInstance();
+                databaseTimeStamps = FirebaseDatabase.getInstance().getReference("timestamps");
+
+                currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date()); //Generates dates for data
+
+                addTimeStamp();
+
+
+            }
+
+            public void addTimeStamp(){
+                String id = databaseTimeStamps.push().getKey();
+
+                TimeStamp timestamp = new TimeStamp(gyroData, accelData, currentDateTimeString);
+                databaseTimeStamps.child(id).setValue(timestamp);
+
+
             }
         });
+
     }
 
 

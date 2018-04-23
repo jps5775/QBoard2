@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.anew.joesema.qboard.QBoardAPI.ViewRunData">
+    tools:context="net.anew.joesema.qboard.QBoardAPI.ViewRunData"
+    android:background="@color/colorPrimaryDark">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Amber - added colors, background, and resized buttons and text -->
         <TextView
             android:id="@+id/tvGryo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gyro:" />
+            android:text="Gyro:"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/etGryo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            />
 
         <TextView
             android:id="@+id/tvAccel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Accel:" />
+            android:text="Accel:"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/etAccel"
@@ -41,7 +48,9 @@
             android:id="@+id/tvConnect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connected: " />
+            android:text="Connected: "
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/etConnect"
@@ -51,15 +60,36 @@
 
         <Button
             android:id="@+id/bConnect"
-            android:layout_width="wrap_content"
+            android:layout_width="304dp"
             android:layout_height="wrap_content"
-            android:text="Connect" />
+            android:layout_gravity="center"
+            android:background="@color/colorPrimaryGreen"
+            android:text="Connect"
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/bGenData"
-            android:layout_width="wrap_content"
+            android:layout_width="304dp"
             android:layout_height="wrap_content"
-            android:text="Gen Data" />
+            android:layout_gravity="center"
+            android:background="@color/colorPrimaryGreen"
+            android:text="Gen Data"
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/bShareData"
+            android:layout_width="304dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorAccentOrange"
+            android:text="Share Data"
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"/>
 
     </LinearLayout>
 

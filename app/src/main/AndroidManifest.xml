@@ -41,6 +41,9 @@
         <activity android:name=".QBoardAPI.skipatrolcontacted" />
         <activity android:name=".QBoardAPI.AlertSent" />
         <activity android:name=".QBoardAPI.ShareData" />
+        <activity android:name=".QBoardAPI.GoProActivity" />
+        <activity android:name=".QBoardAPI.GoProViewStream" />
+
 
     </application>
 

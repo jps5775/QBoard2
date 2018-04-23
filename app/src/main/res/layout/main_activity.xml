@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Welcome to QBoard!"
@@ -23,66 +23,63 @@
 
         <Button
             android:id="@+id/bScanDevices"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="380dp"
+            android:layout_height="62dp"
             android:layout_gravity="center"
             android:background="@color/colorAccentDpPurple"
             android:text="Scan for Devices to Connect"
-            android:textColor="@color/colorPrimaryWhite" />
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/bRunCritique"
+            android:layout_width="380dp"
+            android:layout_height="62dp"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:background="@color/colorPrimaryGreen"
             android:text="View Run Critique"
-            android:textColor="@color/colorPrimaryWhite" />
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/bGoProButton"
-            android:layout_width="wrap_content"
+            android:layout_width="380dp"
+            android:layout_height="62dp"
             android:layout_gravity="center"
-            android:layout_height="wrap_content"
             android:background="@color/colorAccentDpPurple"
             android:text="GoPro"
-            android:textColor="@color/colorPrimaryWhite" />
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/bViewRunData"
-            android:layout_width="wrap_content"
+            android:layout_width="380dp"
+            android:layout_height="62dp"
             android:layout_gravity="center"
-            android:layout_height="wrap_content"
             android:background="@color/colorPrimaryGreen"
             android:text="View Run Data"
-            android:textColor="@color/colorPrimaryWhite" />
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/bViewAggregateData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="380dp"
+            android:layout_height="62dp"
             android:layout_gravity="center"
             android:background="@color/colorAccentDpPurple"
             android:text="View Aggregate Data"
-            android:textColor="@color/colorPrimaryWhite" />
-
-        <Button
-            android:id="@+id/bShareData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/colorPrimaryGreen"
-            android:text="Share Data"
-            android:textColor="@color/colorPrimaryWhite" />
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/bViewEmergencyInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="380dp"
+            android:layout_height="62dp"
             android:layout_gravity="center"
-            android:background="@color/colorAccentDpPurple"
+            android:background="@color/colorAccentOrange"
             android:text="Emergency"
-            android:textColor="@color/colorPrimaryWhite" />
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 

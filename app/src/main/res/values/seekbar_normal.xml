@@ -2,7 +2,7 @@
 <resources>
     <style name="regularSeekbar" parent="Widget.AppCompat.SeekBar">
         <item name="android:progressBackgroundTint">#A7A7A7</item>
-        <item name="andriod:progressTint">#FFFFFF</item>
+        <item name="android:progressTint">#FFFFFF</item>
         <item name="android:colorControlActivated">#FFFFFF</item>
     </style>
 </resources>

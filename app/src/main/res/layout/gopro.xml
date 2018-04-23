@@ -82,8 +82,8 @@
         android:layout_below="@+id/resolutionLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:progress="70"
-        android:theme="@style/specialSeekbar"/>
+        android:theme="@style/specialSeekbar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"/>
 
     <TextView
         android:id="@+id/fpsLabel"
@@ -105,7 +105,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:progress="70"
-        android:theme="@style/regularSeekbar"/>
+        android:theme="@style/regularSeekbar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"/>
 
     <TextView
         android:id="@+id/fieldOfViewLabel"
@@ -126,7 +127,8 @@
         android:layout_below="@+id/fieldOfViewLabel"
         android:layout_centerHorizontal="true"
         android:progress="70"
-        android:theme="@style/regularSeekbar"/>
+        android:theme="@style/regularSeekbar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"/>
 
     <Button
         android:id="@+id/viewFeedButton"

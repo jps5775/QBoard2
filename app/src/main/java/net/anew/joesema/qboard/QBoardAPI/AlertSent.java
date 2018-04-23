@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import net.anew.joesema.qboard.R;
 
+// Coded by Wesley Mauk
+
 public class AlertSent extends AppCompatActivity {
 
     private String eNumber;
