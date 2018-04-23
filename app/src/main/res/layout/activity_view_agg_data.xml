@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.anew.joesema.qboard.QBoardAPI.ViewAggData">
+    tools:context="net.anew.joesema.qboard.QBoardAPI.ViewAggData"
+    android:background="@color/colorPrimaryDark">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,51 +16,61 @@
             android:id="@+id/tvAggGryo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aggregate Gyro:" />
+            android:text="Aggregate Gyro:"
+            android:textColor="@color/colorAccentGrey"/>
 
         <EditText
             android:id="@+id/etAggGryo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimaryWhite"/>
 
         <TextView
             android:id="@+id/tvAggAccel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aggregate Accel:" />
+            android:text="Aggregate Accel:"
+            android:textColor="@color/colorAccentGrey"/>
 
         <EditText
             android:id="@+id/etAggAccel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimaryWhite"/>
 
         <TextView
             android:id="@+id/tvAggConnect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connected: " />
+            android:text="Connected: "
+            android:textColor="@color/colorAccentGrey"/>
 
         <EditText
             android:id="@+id/etAggConnect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@color/colorPrimaryWhite"/>
 
         <Button
             android:id="@+id/bAggConnect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connect" />
+            android:text="Connect"
+            android:background="@color/colorAccentDpPurple"
+            android:textColor="@color/colorPrimaryWhite"/>
 
         <Button
             android:id="@+id/bAggGenData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gen Aggregate Data" />
+            android:text="Gen Aggregate Data"
+            android:background="@color/colorAccentDpPurple"
+            android:textColor="@color/colorPrimaryWhite"/>
 
     </LinearLayout>
 
