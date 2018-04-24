@@ -1,23 +1,25 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import net.anew.joesema.qboard.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button bScanDevices;
-    private Button bRunCritique;
-    private Button bViewRunData;
-    private Button bViewAggData;
+    private ImageButton bScanDevices;
+    private ImageButton bRunCritique;
+    private ImageButton bViewRunData;
+    private ImageButton bViewAggData;
     //private Button bShareData;
-    private Button bEmergency;
-    private Button bGoPro;
+    private ImageButton bEmergency;
+    private ImageButton bGoPro;
     private boolean isConnected = true; // change later data is attained
     private String eNumber;
 
@@ -27,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        bScanDevices = (Button)findViewById(R.id.bScanDevices);
-        bRunCritique = (Button)findViewById(R.id.bRunCritique);
-        bViewRunData = (Button)findViewById(R.id.bViewRunData);
-        bViewAggData = (Button)findViewById(R.id.bViewAggregateData);
+        bScanDevices = (ImageButton)findViewById(R.id.bScanDevices);
+        bRunCritique = (ImageButton)findViewById(R.id.bRunCritique);
+        bViewRunData = (ImageButton)findViewById(R.id.bViewRunData);
+        bViewAggData = (ImageButton)findViewById(R.id.bViewAggregateData);
         //bShareData = (Button)findViewById(R.id.bShareData);
-        bEmergency = (Button)findViewById(R.id.bViewEmergencyInfo);
-        bGoPro = (Button)findViewById(R.id.bGoProButton);
+        bEmergency = (ImageButton)findViewById(R.id.bViewEmergencyInfo);
+        bGoPro = (ImageButton)findViewById(R.id.bGoProButton);
         
         final Bundle extras = getIntent().getExtras();
         if (extras != null) {
