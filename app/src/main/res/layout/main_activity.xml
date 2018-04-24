@@ -21,7 +21,7 @@
             android:textSize="40sp"
             android:textStyle="bold" />
 
-        <ImageButton
+        <Button
             android:id="@+id/bScanDevices"
             android:layout_width="380dp"
             android:layout_height="62dp"
@@ -30,7 +30,7 @@
             android:text="Scan for Devices to Connect"
             android:textColor="@color/colorPrimaryWhite"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ScanForDevices"/>
+            android:src="@drawable/scan_for_devices"/>
 
         <Button
             android:id="@+id/bRunCritique"
@@ -52,7 +52,7 @@
             android:textColor="@color/colorPrimaryWhite"
             android:layout_marginTop="10dp"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/bViewRunData"
             android:layout_width="match_parent"
             android:layout_height="62dp"
@@ -61,7 +61,7 @@
             android:text="View Run Data"
             android:textColor="@color/colorPrimaryWhite"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ViewRunData"/>
+            android:src="@drawable/view_run_data"/>
 
         <Button
             android:id="@+id/bViewAggregateData"
