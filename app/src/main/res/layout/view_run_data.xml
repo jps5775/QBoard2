@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/colorPrimaryGreen"
-            android:text="Gen Data"
+            android:text="Generate Data"
             android:textColor="@color/colorPrimaryWhite"
             android:layout_marginTop="10dp"
             android:textSize="18sp"/>
