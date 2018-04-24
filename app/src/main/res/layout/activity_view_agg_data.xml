@@ -87,7 +87,7 @@
             android:layout_below="@+id/bAggGenData"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:src="@drawable/viewAgg" />
+            android:src="@drawable/view_agg" />
 
         <Button
             android:id="@+id/bAggData"

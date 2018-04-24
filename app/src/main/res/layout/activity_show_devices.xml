@@ -32,7 +32,7 @@
             android:layout_below="@+id/bShowDevicesScan"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:src="@drawable/scanDevices" />
+            android:src="@drawable/scan_devices" />
 
 
     </LinearLayout>
