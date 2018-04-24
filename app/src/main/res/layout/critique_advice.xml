@@ -40,6 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/title"
                 android:ems="10"
+                android:textColor="@color/colorPrimaryWhite"
                 android:inputType="textMultiLine" />
 
         </LinearLayout>
@@ -64,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/gForceAdvice"
                 android:layout_alignStart="@+id/watch"
+                android:textColor="@color/colorPrimaryWhite"
                 android:ems="10"
                 android:inputType="textMultiLine" />
 
@@ -89,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignStart="@+id/speedAdvice"
+                android:textColor="@color/colorPrimaryWhite"
                 android:ems="10"
                 android:inputType="textMultiLine" />
 

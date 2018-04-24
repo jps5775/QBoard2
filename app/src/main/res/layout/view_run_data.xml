@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
+            android:textColor="@color/colorPrimaryWhite"
             android:inputType="textMultiLine"
             />
 
@@ -41,6 +42,7 @@
             android:id="@+id/etAccel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryWhite"
             android:singleLine="true"
             android:inputType="textMultiLine" />
 
@@ -55,6 +57,7 @@
         <EditText
             android:id="@+id/etConnect"
             android:layout_width="match_parent"
+            android:textColor="@color/colorPrimaryWhite"
             android:layout_height="wrap_content"
             android:inputType="number" />
 
@@ -75,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/colorPrimaryGreen"
-            android:text="Gen Data"
+            android:text="Generate Data"
             android:textColor="@color/colorPrimaryWhite"
             android:layout_marginTop="10dp"
             android:textSize="18sp"/>

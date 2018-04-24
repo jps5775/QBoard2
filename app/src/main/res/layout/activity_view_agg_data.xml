@@ -17,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Aggregate Gyro:"
-            android:textColor="@color/colorAccentGrey"/>
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/etAggGryo"
@@ -32,7 +33,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Aggregate Accel:"
-            android:textColor="@color/colorAccentGrey"/>
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/etAggAccel"
@@ -47,7 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Connected: "
-            android:textColor="@color/colorAccentGrey"/>
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/etAggConnect"
@@ -58,17 +61,39 @@
 
         <Button
             android:id="@+id/bAggConnect"
-            android:layout_width="wrap_content"
+            android:layout_width="304dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Connect"
-            android:background="@color/colorAccentDpPurple"
-            android:textColor="@color/colorPrimaryWhite"/>
+            android:background="@color/colorPrimaryGreen"
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/bAggGenData"
+            android:layout_width="304dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Generate Aggregate Data"
+            android:background="@color/colorPrimaryGreen"
+            android:textColor="@color/colorPrimaryWhite"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:layout_width="235dp"
+            android:layout_height="147dp"
+            android:layout_below="@+id/bAggGenData"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/viewAgg" />
+
+        <Button
+            android:id="@+id/bAggData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gen Aggregate Data"
+            android:text="View Aggregate Data"
             android:background="@color/colorAccentDpPurple"
             android:textColor="@color/colorPrimaryWhite"/>
 

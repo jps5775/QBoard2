@@ -130,15 +130,15 @@
         android:theme="@style/regularSeekbar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"/>
 
-    <Button
-        android:id="@+id/viewFeedButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:background="@color/colorAccentDpPurple"
-        android:text="View Live Feed"
-        android:textColor="@color/colorPrimaryWhite" />
+    <!--<Button-->
+        <!--android:id="@+id/viewFeedButton"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="15dp"-->
+        <!--android:background="@color/colorAccentDpPurple"-->
+        <!--android:text="View Live Feed"-->
+        <!--android:textColor="@color/colorPrimaryWhite" />-->
 
 </RelativeLayout>

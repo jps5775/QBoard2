@@ -30,7 +30,7 @@ public class GoProActivity extends AppCompatActivity {
 
     private Button bConnect;
     private Button bRecord;
-    private Button bViewStream;
+    //private Button bViewStream;
     private SeekBar resolutionSeekBar;
     private SeekBar fpsSeekBar;
     private SeekBar fovSeekBar;
@@ -55,7 +55,7 @@ public class GoProActivity extends AppCompatActivity {
 
         bConnect = findViewById(R.id.connectButton);
         bRecord = findViewById(R.id.startRecordingButton);
-        bViewStream = findViewById(R.id.viewFeedButton);
+        //bViewStream = findViewById(R.id.viewFeedButton);
         resolutionSeekBar = findViewById(R.id.resolutionSeekBar);
             resolutionSeekBar.setMin(1);
             resolutionSeekBar.setMax(14);
@@ -97,14 +97,16 @@ public class GoProActivity extends AppCompatActivity {
             }
         });
 
-        bViewStream.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Just open the android's wifi setting
-                startActivity(new Intent(GoProActivity.this, GoProViewStream.class));
+//        bViewStream.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Just open the android's wifi setting
+//                startActivity(new Intent(GoProActivity.this, GoProViewStream.class));
+//
+//            }
+//        });
 
-            }
-        });
+
 
         resolutionSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

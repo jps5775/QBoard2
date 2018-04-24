@@ -30,9 +30,9 @@
             android:text="Scan for Devices to Connect"
             android:textColor="@color/colorPrimaryWhite"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ScanForDevice"/>
+            android:src="@drawable/ScanForDevices"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/bRunCritique"
             android:layout_width="380dp"
             android:layout_height="62dp"
@@ -40,10 +40,9 @@
             android:background="@color/colorPrimaryGreen"
             android:text="View Run Critique"
             android:textColor="@color/colorPrimaryWhite"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ViewRunCritique"/>
+            android:layout_marginTop="10dp"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/bGoProButton"
             android:layout_width="380dp"
             android:layout_height="62dp"
@@ -51,8 +50,7 @@
             android:background="@color/colorAccentDpPurple"
             android:text="GoPro"
             android:textColor="@color/colorPrimaryWhite"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/GoPro"/>
+            android:layout_marginTop="10dp"/>
 
         <ImageButton
             android:id="@+id/bViewRunData"
@@ -65,7 +63,7 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/ViewRunData"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/bViewAggregateData"
             android:layout_width="380dp"
             android:layout_height="62dp"
@@ -73,10 +71,9 @@
             android:background="@color/colorAccentDpPurple"
             android:text="View Aggregate Data"
             android:textColor="@color/colorPrimaryWhite"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ViewAggregateData"/>
+            android:layout_marginTop="10dp"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/bViewEmergencyInfo"
             android:layout_width="380dp"
             android:layout_height="62dp"
@@ -84,8 +81,7 @@
             android:background="@color/colorAccentOrange"
             android:text="Emergency"
             android:textColor="@color/colorPrimaryWhite"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/Emergency"/>
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
