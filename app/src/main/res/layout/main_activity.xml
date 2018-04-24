@@ -29,7 +29,8 @@
             android:background="@color/colorAccentDpPurple"
             android:text="Scan for Devices to Connect"
             android:textColor="@color/colorPrimaryWhite"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:src="@drawable/scan_for_devices"/>
 
         <Button
             android:id="@+id/bRunCritique"
@@ -53,13 +54,14 @@
 
         <Button
             android:id="@+id/bViewRunData"
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="62dp"
             android:layout_gravity="center"
             android:background="@color/colorPrimaryGreen"
             android:text="View Run Data"
             android:textColor="@color/colorPrimaryWhite"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:src="@drawable/view_run_data"/>
 
         <Button
             android:id="@+id/bViewAggregateData"
