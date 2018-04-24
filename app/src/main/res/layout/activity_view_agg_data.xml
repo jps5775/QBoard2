@@ -72,6 +72,14 @@
             android:background="@color/colorAccentDpPurple"
             android:textColor="@color/colorPrimaryWhite"/>
 
+        <Button
+            android:id="@+id/bAggData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Aggregate Data"
+            android:background="@color/colorAccentDpPurple"
+            android:textColor="@color/colorPrimaryWhite"/>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

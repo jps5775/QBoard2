@@ -43,6 +43,7 @@
         <activity android:name=".QBoardAPI.ShareData" />
         <activity android:name=".QBoardAPI.GoProActivity" />
         <activity android:name=".QBoardAPI.GoProViewStream" />
+        <activity android:name=".QBoardAPI.ViewAggList"/>
 
 
     </application>

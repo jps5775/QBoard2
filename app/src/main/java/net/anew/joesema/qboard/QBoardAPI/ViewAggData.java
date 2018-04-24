@@ -1,21 +1,34 @@
 package net.anew.joesema.qboard.QBoardAPI;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 
 import net.anew.joesema.qboard.R;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+import static java.text.DateFormat.getDateTimeInstance;
 
 public class ViewAggData extends AppCompatActivity {
 
@@ -26,16 +39,32 @@ public class ViewAggData extends AppCompatActivity {
     private Button genButton;
     private SimuBoard board;
     public DatabaseReference databaseTimeStamps;
+    public DatabaseReference databaseRef; //Tests
     public String gyroData;
     public String accelData;
     public String currentDateTimeString;
+    private Button viewAggDataButton;
+    private String eNumber;
+
+    ListView listViewTimeStamps;
+    List<TimeStamp> timeStampList;
+
 
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_agg_data);
+        databaseTimeStamps = FirebaseDatabase.getInstance().getReference("timestamps");
+        //listViewTimeStamps = (ListView) findViewById(R.id.listViewTimeStamps);
 
+        //timeStampList = new ArrayList<>();
 
+        final Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            eNumber = extras.getString("eNumber");
+            Toast.makeText(ViewAggData.this, extras.getString("eNumber"),
+                    Toast.LENGTH_LONG).show();
+        }
 
         //myRef.setValue("Hello, World!");
         board = new SimuBoard();
@@ -45,6 +74,8 @@ public class ViewAggData extends AppCompatActivity {
         connectedText = (EditText)findViewById(R.id.etAggConnect);
         connectButton = (Button)findViewById(R.id.bAggConnect);
         genButton = (Button) findViewById(R.id.bAggGenData);
+        viewAggDataButton = (Button) findViewById(R.id.bAggData);
+
 
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +100,20 @@ public class ViewAggData extends AppCompatActivity {
 
             }
         });
+
+        viewAggDataButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewAggData.this, ViewAggList.class);
+                if(extras != null)
+                {
+                    intent.putExtra("eNumber", extras.getString("eNumber"));
+                }
+                startActivity(intent);
+            }
+            });
+
+
 
         genButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,27 +149,65 @@ public class ViewAggData extends AppCompatActivity {
                 gryoText.setText(gyroData);
                 accelText.setText(accelData);
 
+
+
+
                 //FirebaseDatabase database = FirebaseDatabase.getInstance();
-                databaseTimeStamps = FirebaseDatabase.getInstance().getReference("timestamps");
 
-                currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date()); //Generates dates for data
 
+                currentDateTimeString = getDateTimeInstance().format(new Date()); //Generates dates for data
+                //onStart();
                 addTimeStamp();
 
 
             }
 
-            public void addTimeStamp(){
-                String id = databaseTimeStamps.push().getKey();
-
-                TimeStamp timestamp = new TimeStamp(gyroData, accelData, currentDateTimeString);
-                databaseTimeStamps.child(id).setValue(timestamp);
 
 
-            }
+
+
+
+
+
+
+
         });
 
     }
+    public void addTimeStamp(){
+        String id = databaseTimeStamps.push().getKey();
 
+        TimeStamp timestamp = new TimeStamp(gyroData, accelData, currentDateTimeString);
+        databaseTimeStamps.child(id).setValue(timestamp);
+
+
+    }
+  /*  @Override
+    protected void onStart() {
+        super.onStart();
+
+        databaseTimeStamps.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                timeStampList.clear();
+
+                for(DataSnapshot timeStampSnapshot : dataSnapshot.getChildren()){
+                    TimeStamp timeStamp = timeStampSnapshot.getValue(TimeStamp.class);
+
+                    timeStampList.add(timeStamp);
+                }
+
+                TimeStampList adapter = new TimeStampList(ViewAggData.this, timeStampList);
+          //      listViewTimeStamps.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+*/
 
 }
